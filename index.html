@@ -6,6 +6,10 @@
   <title>Homenaje a Arcángel — CEIP Francisco Alcalá</title>
   <meta name="description" content="Proyecto educativo y cultural de homenaje al cantaor onubense Arcángel realizado por el CEIP Francisco Alcalá de Villalba del Alcor (Huelva)." />
   
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/maestrotemp21/arcangel/main/favicon%20web%20arcangel.png" />
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/maestrotemp21/arcangel/main/favicon%20web%20arcangel.png" />
+  
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   
@@ -81,8 +85,9 @@
       </a>
 
       <!-- Menú Desktop -->
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-stone-200">
+      <nav class="hidden lg:flex items-center gap-5 text-sm font-medium text-stone-200">
         <a href="#esencia" class="hover:text-flamenco-gold transition-colors">Esencia</a>
+        <a href="#galeria" class="hover:text-flamenco-gold transition-colors">Galería</a>
         <a href="#documental" class="hover:text-flamenco-gold transition-colors">Documental</a>
         <a href="#trayectoria" class="hover:text-flamenco-gold transition-colors">Trayectoria</a>
         <a href="#discografia" class="hover:text-flamenco-gold transition-colors">Discografía</a>
@@ -100,6 +105,7 @@
     <!-- Menú Móvil Desplegable -->
     <div id="mobile-menu" class="hidden lg:hidden bg-flamenco-dark border-b border-white/10 px-6 py-4 space-y-3 text-stone-200">
       <a href="#esencia" class="block py-1.5 hover:text-flamenco-gold">Esencia</a>
+      <a href="#galeria" class="block py-1.5 hover:text-flamenco-gold">Galería</a>
       <a href="#documental" class="block py-1.5 hover:text-flamenco-gold">Documental</a>
       <a href="#trayectoria" class="block py-1.5 hover:text-flamenco-gold">Trayectoria</a>
       <a href="#discografia" class="block py-1.5 hover:text-flamenco-gold">Discografía</a>
@@ -278,6 +284,96 @@
           <blockquote class="mt-6 p-6 rounded-2xl bg-white/95 border-l-4 border-flamenco-crimson shadow-sm font-serif text-xl sm:text-2xl italic text-flamenco-ink text-justify">
             Arcángel es flamenco porque en su voz habita Andalucía. Y el flamenco es Arcángel porque en su arte encontramos una manera única de sentir, comprender y transmitir nuestras raíces.
           </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUEVA SECCIÓN: GALERÍA DE IMÁGENES INTERACTIVA (JUSTO ANTES DEL DOCUMENTAL) -->
+  <section id="galeria" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <div class="max-w-3xl mx-auto mb-12 space-y-3">
+      <div class="text-center space-y-2">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-flamenco-crimson">Recorrido Fotográfico</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-flamenco-ink">Galería de Imágenes de Arcángel</h2>
+      </div>
+      <p class="text-stone-600 text-base sm:text-lg text-justify">
+        Un recorrido visual por distintos momentos artísticos, retratos y actuaciones del cantaor onubense. Las fotografías avanzan automáticamente cada 4 segundos; sitúa el cursor encima para detener el pase o pulsa sobre la imagen para ampliarla a pantalla completa.
+      </p>
+    </div>
+
+    <!-- Carrusel Principal -->
+    <div 
+      id="arcangel-gallery-container"
+      onmouseenter="pauseGalleryAuto()"
+      onmouseleave="resumeGalleryAuto()"
+      class="relative bg-flamenco-dark rounded-3xl overflow-hidden shadow-2xl border-2 border-flamenco-gold/35 select-none"
+    >
+      <!-- Marco de Imagen Activa -->
+      <div 
+        onclick="openGalleryLightbox()"
+        class="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-flamenco-dark flex items-center justify-center overflow-hidden cursor-pointer group"
+      >
+        <!-- Fondo difuminado sutil para encuadrar fotos verticales u horizontales sin recortes bruscos -->
+        <img 
+          id="gallery-bg-blur"
+          src="https://raw.githubusercontent.com/maestrotemp21/imgen/main/0ARCANGEL.jpg"
+          alt=""
+          aria-hidden="true"
+          class="absolute inset-0 w-full h-full object-cover opacity-25 blur-xl scale-110 transition-all duration-500"
+        />
+
+        <img 
+          id="gallery-active-img"
+          src="https://raw.githubusercontent.com/maestrotemp21/imgen/main/0ARCANGEL.jpg"
+          alt="Galería de Arcángel — Fotografía 1"
+          class="relative z-10 max-h-full max-w-full w-auto h-full object-contain transition-opacity duration-300 group-hover:scale-[1.015] transition-transform"
+        />
+
+        <!-- Indicador Superior Izquierdo (Contador y estado de pausa) -->
+        <div class="absolute top-4 left-4 z-20 flex items-center gap-2">
+          <span id="gallery-counter" class="px-3.5 py-1.5 rounded-full bg-black/75 text-flamenco-goldLight text-xs font-bold tracking-wider backdrop-blur-sm border border-white/10">
+            1 / 13
+          </span>
+          <span id="gallery-pause-badge" class="hidden px-3 py-1.5 rounded-full bg-flamenco-crimson/90 text-white text-xs font-semibold items-center gap-1.5 backdrop-blur-sm">
+            <i data-lucide="pause" class="w-3 h-3 fill-current"></i>
+            Pausado
+          </span>
+        </div>
+
+        <!-- Botón Superior Derecho para Ampliar -->
+        <div class="absolute top-4 right-4 z-20 px-3.5 py-1.5 rounded-full bg-black/75 group-hover:bg-flamenco-crimson text-white text-xs font-medium flex items-center gap-1.5 backdrop-blur-sm border border-white/10 transition-colors">
+          <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-flamenco-gold group-hover:text-white"></i>
+          Ampliar imagen
+        </div>
+      </div>
+
+      <!-- Flecha Lateral Izquierda (Anterior) -->
+      <button 
+        type="button"
+        onclick="event.stopPropagation(); prevGallerySlide();"
+        aria-label="Fotografía anterior"
+        class="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/70 hover:bg-flamenco-crimson text-white border border-white/20 flex items-center justify-center shadow-xl backdrop-blur-sm transition-all hover:scale-105"
+      >
+        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+      </button>
+
+      <!-- Flecha Lateral Derecha (Siguiente) -->
+      <button 
+        type="button"
+        onclick="event.stopPropagation(); nextGallerySlide();"
+        aria-label="Fotografía siguiente"
+        class="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/70 hover:bg-flamenco-crimson text-white border border-white/20 flex items-center justify-center shadow-xl backdrop-blur-sm transition-all hover:scale-105"
+      >
+        <i data-lucide="chevron-right" class="w-6 h-6"></i>
+      </button>
+
+      <!-- Barra Inferior con Puntos Indicadores -->
+      <div class="relative z-20 bg-black/85 border-t border-white/10 px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p id="gallery-caption" class="text-xs sm:text-sm text-stone-200 font-medium text-center sm:text-left">
+          Arcángel — Retrato y esencia flamenca (1 de 13)
+        </p>
+        <div id="gallery-dots" class="flex flex-wrap items-center justify-center gap-2" aria-label="Selector de diapositivas">
+          <!-- Los 13 puntos indicadores se generan dinámicamente con JavaScript -->
         </div>
       </div>
     </div>
@@ -945,11 +1041,35 @@
     </div>
   </footer>
 
-  <!-- VISOR LIGHTBOX PARA AMPLIAR IMÁGENES -->
-  <div id="lightbox" class="fixed inset-0 z-50 hidden bg-black/90 items-center justify-center p-4" onclick="closeLightbox(event)">
-    <button onclick="closeLightbox(event, true)" aria-label="Cerrar visor" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-colors">
+  <!-- VISOR LIGHTBOX PARA AMPLIAR IMÁGENES (CON NAVEGACIÓN PARA LA GALERÍA) -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden bg-black/92 items-center justify-center p-4" onclick="closeLightbox(event)">
+    <!-- Botón Cerrar (X) -->
+    <button onclick="closeLightbox(event, true)" aria-label="Cerrar visor" class="absolute top-5 right-5 z-30 w-11 h-11 rounded-full bg-white/15 hover:bg-flamenco-crimson text-white flex items-center justify-center transition-colors">
       <i data-lucide="x" class="w-6 h-6"></i>
     </button>
+
+    <!-- Flecha Anterior en Lightbox (visible cuando se abre desde la galería) -->
+    <button 
+      id="lightbox-prev-btn"
+      type="button"
+      onclick="event.stopPropagation(); lightboxPrevGallery();"
+      aria-label="Imagen anterior"
+      class="hidden absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/15 hover:bg-flamenco-crimson text-white border border-white/20 items-center justify-center shadow-xl transition-all"
+    >
+      <i data-lucide="chevron-left" class="w-7 h-7"></i>
+    </button>
+
+    <!-- Flecha Siguiente en Lightbox (visible cuando se abre desde la galería) -->
+    <button 
+      id="lightbox-next-btn"
+      type="button"
+      onclick="event.stopPropagation(); lightboxNextGallery();"
+      aria-label="Imagen siguiente"
+      class="hidden absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/15 hover:bg-flamenco-crimson text-white border border-white/20 items-center justify-center shadow-xl transition-all"
+    >
+      <i data-lucide="chevron-right" class="w-7 h-7"></i>
+    </button>
+
     <div class="max-w-5xl max-h-[92vh] flex flex-col items-center gap-3" onclick="event.stopPropagation()">
       <div class="bg-white p-2 sm:p-4 rounded-2xl shadow-2xl flex items-center justify-center">
         <img id="lightbox-img" src="" alt="" class="max-h-[80vh] w-auto object-contain rounded-lg" />
@@ -973,7 +1093,6 @@
     // Control de Audio del Banner "Arcángel es flamenco y el flamenco es Arcángel"
     const esenciaAudio = document.getElementById('esencia-audio');
     const playPauseBtn = document.getElementById('audio-playpause-btn');
-    const playPauseLabel = document.getElementById('audio-playpause-label');
     const speakerBadge = document.getElementById('audio-speaker-badge');
     const statusText = document.getElementById('audio-status-text');
 
@@ -1023,7 +1142,150 @@
       updateAudioUI(false);
     });
 
-    // Reproducir documental de YouTube al pulsar sobre la portada
+    // =========================================================================
+    // GALERÍA DE IMÁGENES INTERACTIVA (PASE AUTOMÁTICO CADA 4s + LIGHTBOX)
+    // =========================================================================
+    const galleryImages = [
+      { url: 'https://raw.githubusercontent.com/maestrotemp21/imgen/main/0ARCANGEL.jpg', fallback: 'https://github.com/maestrotemp21/imgen/blob/main/0ARCANGEL.jpg?raw=true', title: 'Arcángel — Fotografía 1 de 13' },
+      { url: 'https://raw.githubusercontent.com/maestrotemp21/imgen/main/3ARCANGEL.jpg', fallback: 'https://github.com/maestrotemp21/imgen/blob/main/3ARCANGEL.jpg?raw=true', title: 'Arcángel — Fotografía 2 de 13' },
+      { url: 'https://raw.githubusercontent.com/maestrotemp21/imgen/main/4ARCANGEL.jpg', fallback: 'https://github.com/maestrotemp21/imgen/blob/main/4ARCANGEL.jpg?raw=true', title: 'Arcángel — Fotografía 3 de 13' },
+      { url: 'https://raw.githubusercontent.com/maestrotemp21/imgen/main/1ARCANGEL.jpg', fallback: 'https://github.com/maestrotemp21/imgen/blob/main/1ARCANGEL.jpg?raw=true', title: 'Arcángel — Fotografía 4 de 13' },
+      { url: 'https://raw.githubusercontent.com/maestrotemp21/imgen/main/7ARCANGEL.jpg', fallback: 'https://github.com/maestrotemp21/imgen/blob/main/7ARCANGEL.jpg?raw=true', title: 'Arcángel — Fotografía 5 de 13' },
+      { url: 'https://raw.githubusercontent.com/maestrotemp21/imgen/main/8ARCANGEL.jpg', fallback: 'https://github.com/maestrotemp21/imgen/blob/main/8ARCANGEL.jpg?raw=true', title: 'Arcángel — Fotografía 6 de 13' },
+      { url: 'https://raw.githubusercontent.com/maestrotemp21/imgen/main/10ARCANGEL.jpg', fallback: 'https://github.com/maestrotemp21/imgen/blob/main/10ARCANGEL.jpg?raw=true', title: 'Arcángel — Fotografía 7 de 13' },
+      { url: 'https://raw.githubusercontent.com/maestrotemp21/imgen/main/12ARCANGEL.jpg', fallback: 'https://github.com/maestrotemp21/imgen/blob/main/12ARCANGEL.jpg?raw=true', title: 'Arcángel — Fotografía 8 de 13' },
+      { url: 'https://raw.githubusercontent.com/maestrotemp21/imgen/main/19ARCANGEL.jpg', fallback: 'https://github.com/maestrotemp21/imgen/blob/main/19ARCANGEL.jpg?raw=true', title: 'Arcángel — Fotografía 9 de 13' },
+      { url: 'https://raw.githubusercontent.com/maestrotemp21/imgen/main/21ARCANGEL.jpg', fallback: 'https://github.com/maestrotemp21/imgen/blob/main/21ARCANGEL.jpg?raw=true', title: 'Arcángel — Fotografía 10 de 13' },
+      { url: 'https://raw.githubusercontent.com/maestrotemp21/imgen/main/22ARCANGEL.jpg', fallback: 'https://github.com/maestrotemp21/imgen/blob/main/22ARCANGEL.jpg?raw=true', title: 'Arcángel — Fotografía 11 de 13' },
+      { url: 'https://raw.githubusercontent.com/maestrotemp21/imgen/main/23ARCANGEL.jpg', fallback: 'https://github.com/maestrotemp21/imgen/blob/main/23ARCANGEL.jpg?raw=true', title: 'Arcángel — Fotografía 12 de 13' },
+      { url: 'https://raw.githubusercontent.com/maestrotemp21/imgen/main/25ARCANGEL.jpg', fallback: 'https://github.com/maestrotemp21/imgen/blob/main/25ARCANGEL.jpg?raw=true', title: 'Arcángel — Fotografía 13 de 13' }
+    ];
+
+    let currentGalleryIndex = 0;
+    let galleryTimer = null;
+    let isGalleryPaused = false;
+    let isLightboxGalleryMode = false;
+
+    const galleryActiveImg = document.getElementById('gallery-active-img');
+    const galleryBgBlur = document.getElementById('gallery-bg-blur');
+    const galleryCounter = document.getElementById('gallery-counter');
+    const galleryCaption = document.getElementById('gallery-caption');
+    const galleryDotsContainer = document.getElementById('gallery-dots');
+    const galleryPauseBadge = document.getElementById('gallery-pause-badge');
+    const galleryContainer = document.getElementById('arcangel-gallery-container');
+
+    // Crear los 13 puntos indicadores inferiores
+    function renderGalleryDots() {
+      galleryDotsContainer.innerHTML = '';
+      galleryImages.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Ir a la fotografía ${idx + 1}`);
+        dot.className = idx === currentGalleryIndex
+          ? 'w-7 h-2.5 rounded-full bg-flamenco-gold transition-all duration-300'
+          : 'w-2.5 h-2.5 rounded-full bg-white/35 hover:bg-white/70 transition-all duration-300';
+        dot.onclick = (e) => {
+          e.stopPropagation();
+          goToGallerySlide(idx);
+        };
+        galleryDotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateGalleryDisplay() {
+      const item = galleryImages[currentGalleryIndex];
+      galleryActiveImg.style.opacity = '0.25';
+      setTimeout(() => {
+        galleryActiveImg.onerror = function() {
+          this.onerror = null;
+          this.src = item.fallback;
+        };
+        galleryActiveImg.src = item.url;
+        galleryActiveImg.alt = item.title;
+        galleryBgBlur.src = item.url;
+        galleryActiveImg.style.opacity = '1';
+      }, 120);
+
+      galleryCounter.textContent = `${currentGalleryIndex + 1} / ${galleryImages.length}`;
+      galleryCaption.textContent = item.title;
+      renderGalleryDots();
+
+      // Si el lightbox está abierto en modo galería, actualizar también la foto ampliada
+      if (isLightboxGalleryMode && !lightbox.classList.contains('hidden')) {
+        lightboxImg.onerror = function() {
+          this.onerror = null;
+          this.src = item.fallback;
+        };
+        lightboxImg.src = item.url;
+        lightboxCaption.textContent = item.title;
+      }
+    }
+
+    function goToGallerySlide(index) {
+      currentGalleryIndex = (index + galleryImages.length) % galleryImages.length;
+      updateGalleryDisplay();
+      if (!isGalleryPaused) {
+        startGalleryAuto();
+      }
+    }
+
+    function nextGallerySlide() {
+      goToGallerySlide(currentGalleryIndex + 1);
+    }
+
+    function prevGallerySlide() {
+      goToGallerySlide(currentGalleryIndex - 1);
+    }
+
+    function startGalleryAuto() {
+      clearInterval(galleryTimer);
+      galleryTimer = setInterval(() => {
+        if (!isGalleryPaused && !isLightboxGalleryMode) {
+          currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+          updateGalleryDisplay();
+        }
+      }, 4000);
+    }
+
+    function pauseGalleryAuto() {
+      isGalleryPaused = true;
+      clearInterval(galleryTimer);
+      galleryPauseBadge.classList.remove('hidden');
+      galleryPauseBadge.classList.add('inline-flex');
+    }
+
+    function resumeGalleryAuto() {
+      if (!isLightboxGalleryMode) {
+        isGalleryPaused = false;
+        galleryPauseBadge.classList.add('hidden');
+        galleryPauseBadge.classList.remove('inline-flex');
+        startGalleryAuto();
+      }
+    }
+
+    // Soporte táctil (deslizar en móvil/tableta)
+    let touchStartX = 0;
+    galleryContainer.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      pauseGalleryAuto();
+    }, { passive: true });
+
+    galleryContainer.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) nextGallerySlide();
+        else prevGallerySlide();
+      }
+    }, { passive: true });
+
+    // Iniciar galería automáticamente
+    renderGalleryDots();
+    startGalleryAuto();
+
+    // =========================================================================
+    // REPRODUCTOR DOCUMENTAL YOUTUBE
+    // =========================================================================
     function playDocumentary() {
       const wrapper = document.getElementById('doc-player-wrapper');
       wrapper.innerHTML = `
@@ -1038,17 +1300,61 @@
       `;
     }
 
-    // Visor Lightbox
+    // =========================================================================
+    // VISOR LIGHTBOX (SOPORTA TANTO IMÁGENES SUELTAS COMO LA GALERÍA COMPLETA)
+    // =========================================================================
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxPrevBtn = document.getElementById('lightbox-prev-btn');
+    const lightboxNextBtn = document.getElementById('lightbox-next-btn');
 
     function openLightbox(src, caption) {
+      isLightboxGalleryMode = false;
+      lightboxPrevBtn.classList.add('hidden');
+      lightboxPrevBtn.classList.remove('flex');
+      lightboxNextBtn.classList.add('hidden');
+      lightboxNextBtn.classList.remove('flex');
+
       lightboxImg.src = src;
       lightboxCaption.textContent = caption || '';
       lightbox.classList.remove('hidden');
       lightbox.classList.add('flex');
       document.body.style.overflow = 'hidden';
+    }
+
+    function openGalleryLightbox() {
+      isLightboxGalleryMode = true;
+      pauseGalleryAuto();
+      const item = galleryImages[currentGalleryIndex];
+      lightboxPrevBtn.classList.remove('hidden');
+      lightboxPrevBtn.classList.add('flex');
+      lightboxNextBtn.classList.remove('hidden');
+      lightboxNextBtn.classList.add('flex');
+
+      lightboxImg.onerror = function() {
+        this.onerror = null;
+        this.src = item.fallback;
+      };
+      lightboxImg.src = item.url;
+      lightboxCaption.textContent = item.title;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function lightboxNextGallery() {
+      if (isLightboxGalleryMode) {
+        currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+        updateGalleryDisplay();
+      }
+    }
+
+    function lightboxPrevGallery() {
+      if (isLightboxGalleryMode) {
+        currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+        updateGalleryDisplay();
+      }
     }
 
     function closeLightbox(event, force = false) {
@@ -1057,12 +1363,22 @@
         lightbox.classList.remove('flex');
         lightboxImg.src = '';
         document.body.style.overflow = '';
+        if (isLightboxGalleryMode) {
+          isLightboxGalleryMode = false;
+          resumeGalleryAuto();
+        }
       }
     }
 
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
-        closeLightbox(e, true);
+      if (!lightbox.classList.contains('hidden')) {
+        if (e.key === 'Escape') {
+          closeLightbox(e, true);
+        } else if (isLightboxGalleryMode && e.key === 'ArrowRight') {
+          lightboxNextGallery();
+        } else if (isLightboxGalleryMode && e.key === 'ArrowLeft') {
+          lightboxPrevGallery();
+        }
       }
     });
   </script>

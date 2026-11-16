@@ -3,17 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Política de Privacidad — Homenaje a Arcángel | CEIP Francisco Alcalá</title>
-  <meta name="description" content="Política de Privacidad, Protección de Datos y Aviso Legal Educativo del proyecto Homenaje a Arcángel del CEIP Francisco Alcalá (Villalba del Alcor, Huelva)." />
-  
+  <title>Política de Cookies — Homenaje a Arcángel · CEIP Francisco Alcalá</title>
+  <meta name="description" content="Política de Cookies del proyecto educativo Homenaje a Arcángel del CEIP Francisco Alcalá de Villalba del Alcor (Huelva)." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/maestrotemp21/arcangel/main/favicon%20web%20arcangel.png" />
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/maestrotemp21/arcangel/main/favicon%20web%20arcangel.png" />
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -51,10 +55,10 @@
 </head>
 <body class="antialiased selection:bg-flamenco-crimson selection:text-white flex flex-col min-h-screen">
 
-  <!-- NAVEGACIÓN SUPERIOR (IDÉNTICA A LA WEB PRINCIPAL) -->
-  <header class="fixed top-0 inset-x-0 z-40 bg-flamenco-dark/90 backdrop-blur-md border-b border-white/10">
+  <!-- NAVEGACIÓN SUPERIOR -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-flamenco-dark/95 backdrop-blur-md border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="index.html#inicio" class="flex items-center gap-3 group">
+      <a href="index.html" class="flex items-center gap-3 group">
         <img 
           src="https://raw.githubusercontent.com/maestrotemp21/imgen/main/LOGO%20COLEGIO.png" 
           onerror="this.onerror=null;this.src='https://github.com/maestrotemp21/imgen/blob/main/LOGO%20COLEGIO.png?raw=true';"
@@ -67,193 +71,131 @@
         </div>
       </a>
 
-      <!-- Menú Desktop -->
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-stone-200">
-        <a href="index.html#esencia" class="hover:text-flamenco-gold transition-colors">Esencia</a>
-        <a href="index.html#documental" class="hover:text-flamenco-gold transition-colors">Documental</a>
-        <a href="index.html#trayectoria" class="hover:text-flamenco-gold transition-colors">Trayectoria</a>
-        <a href="index.html#discografia" class="hover:text-flamenco-gold transition-colors">Discografía</a>
-        <a href="index.html#museo" class="hover:text-flamenco-gold transition-colors">Museo</a>
-        <a href="index.html#alumnado" class="hover:text-flamenco-gold transition-colors">Alumnado</a>
-        <a href="index.html#programa" class="px-4 py-2 rounded-full bg-flamenco-crimson hover:bg-flamenco-wine text-white transition-colors shadow-sm">Programa del Acto</a>
-      </nav>
-
-      <!-- Botón Menú Móvil -->
-      <button id="mobile-menu-btn" class="lg:hidden p-2 text-stone-200 hover:text-white" aria-label="Abrir menú">
-        <i data-lucide="menu" class="w-6 h-6"></i>
-      </button>
-    </div>
-
-    <!-- Menú Móvil Desplegable -->
-    <div id="mobile-menu" class="hidden lg:hidden bg-flamenco-dark border-b border-white/10 px-6 py-4 space-y-3 text-stone-200">
-      <a href="index.html#esencia" class="block py-1.5 hover:text-flamenco-gold">Esencia</a>
-      <a href="index.html#documental" class="block py-1.5 hover:text-flamenco-gold">Documental</a>
-      <a href="index.html#trayectoria" class="block py-1.5 hover:text-flamenco-gold">Trayectoria</a>
-      <a href="index.html#discografia" class="block py-1.5 hover:text-flamenco-gold">Discografía</a>
-      <a href="index.html#museo" class="block py-1.5 hover:text-flamenco-gold">Museo</a>
-      <a href="index.html#alumnado" class="block py-1.5 hover:text-flamenco-gold">Alumnado</a>
-      <a href="index.html#programa" class="block py-2 text-center rounded-lg bg-flamenco-crimson text-white font-semibold">Programa del Acto</a>
+      <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-flamenco-crimson text-stone-200 hover:text-white text-sm font-medium transition-colors">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        Volver al inicio
+      </a>
     </div>
   </header>
 
   <!-- CONTENIDO PRINCIPAL -->
   <main class="flex-1 pt-28 pb-20 px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto space-y-10">
-
-      <!-- Cabecera de Página Legal -->
-      <div class="text-center space-y-3 pb-6 border-b border-stone-200">
-        <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-flamenco-crimson/10 text-flamenco-crimson text-xs font-bold uppercase tracking-[0.2em]">
-          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-          Información Institucional y Legal
-        </span>
-        <h1 class="font-serif text-4xl sm:text-5xl font-bold text-flamenco-ink">
-          Política de Privacidad y Uso Educativo
+      
+      <!-- Cabecera -->
+      <div class="text-center space-y-3">
+        <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-flamenco-crimson">Transparencia Digital</span>
+        <h1 class="font-serif text-4xl sm:text-5xl font-bold text-flamenco-ink leading-tight">
+          Política de Cookies
         </h1>
-        <p class="text-stone-600 text-sm sm:text-base max-w-2xl mx-auto">
-          Compromiso de transparencia, protección de datos y divulgación cultural sin ánimo de lucro del CEIP Francisco Alcalá.
+        <p class="text-stone-600 text-base sm:text-lg max-w-2xl mx-auto text-justify">
+          Información clara sobre el uso de cookies y almacenamiento local en la página web educativa «Homenaje a Arcángel» del CEIP Francisco Alcalá.
         </p>
       </div>
 
-      <!-- Tarjeta de Identificación del Centro -->
-      <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/90 space-y-5">
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-flamenco-ink text-center">
-          1. Identificación del Responsable del Proyecto Web
-        </h2>
-        <p class="text-stone-700 leading-relaxed text-justify">
-          En cumplimiento con el deber de información establecido en el Reglamento (UE) 2016/679 General de Protección de Datos (RGPD), la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD), y la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se ponen a disposición de los usuarios los datos identificativos del centro educativo impulsor de esta iniciativa:
-        </p>
+      <!-- Tarjeta Principal de Contenido -->
+      <article class="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-stone-200/90 space-y-8 text-stone-700 leading-relaxed text-justify">
+        
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-flamenco-ink text-center">1. ¿Qué son las cookies?</h2>
+          <p>
+            Una cookie es un pequeño archivo de texto que un sitio web guarda en el navegador del usuario cuando lo visita, permitiendo recordar preferencias de navegación o facilitar el funcionamiento técnico de determinados contenidos multimedia.
+          </p>
+        </section>
 
-        <div class="bg-flamenco-sand/70 border border-flamenco-gold/30 rounded-2xl p-5 sm:p-6 grid sm:grid-cols-2 gap-4 text-sm text-flamenco-ink">
-          <div class="space-y-1.5">
-            <p><strong class="text-flamenco-crimson">Centro Educativo:</strong> CEIP Francisco Alcalá</p>
-            <p><strong class="text-flamenco-crimson">Dirección Postal:</strong> C/ Pinadero, s/n</p>
-            <p><strong class="text-flamenco-crimson">Localidad:</strong> 21860 - Villalba del Alcor, Huelva (España)</p>
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-flamenco-ink text-center">2. Cookies utilizadas en este sitio web</h2>
+          <p>
+            Este sitio web educativo <strong>no utiliza cookies propias de seguimiento, analítica ni publicidad</strong>. Tampoco elabora perfiles comerciales ni rastrea los hábitos de navegación del alumnado, las familias o el profesorado.
+          </p>
+          <p>
+            Únicamente pueden intervenir recursos técnicos o de terceros bajo las siguientes condiciones:
+          </p>
+
+          <div class="overflow-x-auto pt-2">
+            <table class="w-full text-left border-collapse text-sm">
+              <thead>
+                <tr class="bg-flamenco-dark text-white">
+                  <th class="p-3.5 rounded-tl-xl font-semibold">Servicio / Proveedor</th>
+                  <th class="p-3.5 font-semibold">Tipo</th>
+                  <th class="p-3.5 rounded-tr-xl font-semibold">Finalidad</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-stone-200 border border-stone-200">
+                <tr>
+                  <td class="p-3.5 font-semibold text-flamenco-ink">GitHub Pages</td>
+                  <td class="p-3.5">Técnica / Infraestructura</td>
+                  <td class="p-3.5">Alojamiento estático y entrega segura de los archivos HTML, imágenes y pistas de audio de la web.</td>
+                </tr>
+                <tr class="bg-flamenco-cream/40">
+                  <td class="p-3.5 font-semibold text-flamenco-ink">Google Fonts / CDN</td>
+                  <td class="p-3.5">Técnica / Estilo</td>
+                  <td class="p-3.5">Carga de las tipografías editoriales e iconos visuales necesarios para la correcta presentación de la página.</td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 font-semibold text-flamenco-ink">YouTube (Google LLC)</td>
+                  <td class="p-3.5">Terceros (bajo demanda)</td>
+                  <td class="p-3.5">El reproductor del documental solo se activa cuando el usuario pulsa expresamente el botón de reproducción. Puede establecer cookies técnicas o de preferencias propias de YouTube.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="space-y-1.5">
-            <p><strong class="text-flamenco-crimson">Teléfono Dirección:</strong> <a href="tel:959439931" class="underline hover:text-flamenco-crimson">959 439 931</a></p>
-            <p><strong class="text-flamenco-crimson">Teléfono Secretaría:</strong> <a href="tel:959439932" class="underline hover:text-flamenco-crimson">959 439 932</a></p>
-            <p><strong class="text-flamenco-crimson">Correo Electrónico:</strong> <a href="mailto:21002999.edu@juntadeandalucia.es" class="underline hover:text-flamenco-crimson break-all">21002999.edu@juntadeandalucia.es</a></p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- Naturaleza Educativa y Sin Ánimo de Lucro -->
-      <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/90 space-y-4">
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-flamenco-ink text-center">
-          2. Finalidad Exclusivamente Educativa y Sin Ánimo de Lucro
-        </h2>
-        <div class="space-y-4 text-stone-700 leading-relaxed text-justify">
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-flamenco-ink text-center">3. Cómo gestionar o desactivar las cookies en su navegador</h2>
           <p>
-            El presente sitio web constituye un <strong>recurso pedagógico, artístico y cultural de carácter estrictamente educativo y sin ánimo de lucro</strong>, diseñado y coordinado en el seno del <strong>CEIP Francisco Alcalá</strong> con motivo de la conmemoración del Día del Flamenco y como homenaje institucional a la figura y trayectoria del cantaor onubense <strong>Arcángel</strong>.
+            El usuario puede permitir, bloquear o eliminar las cookies instaladas en su dispositivo mediante la configuración de las opciones del navegador web que utilice habitualmente:
           </p>
-          <p>
-            Esta plataforma carece de cualquier finalidad comercial, publicitaria o lucrativa. Todos los materiales expositivos, audiovisuales, documentales y didácticos aquí publicados tienen como único objeto fomentar el conocimiento del patrimonio cultural andaluz, promover la educación artística en el aula y compartir con las familias y la comunidad educativa el trabajo realizado por el alumnado y el claustro docente.
-          </p>
-        </div>
-      </section>
+          <ul class="list-disc pl-6 space-y-1.5 text-sm sm:text-base">
+            <li><strong>Google Chrome:</strong> Configuración → Privacidad y seguridad → Cookies y otros datos de sitios.</li>
+            <li><strong>Mozilla Firefox:</strong> Ajustes → Privacidad y seguridad → Cookies y datos del sitio.</li>
+            <li><strong>Safari (Apple):</strong> Ajustes / Preferencias → Privacidad → Gestionar datos de sitios web.</li>
+            <li><strong>Microsoft Edge:</strong> Configuración → Cookies y permisos del sitio → Administrar y eliminar cookies.</li>
+          </ul>
+        </section>
 
-      <!-- Tratamiento de Datos Personales -->
-      <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/90 space-y-4">
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-flamenco-ink text-center">
-          3. Recogida y Tratamiento de Datos Personales
-        </h2>
-        <div class="space-y-4 text-stone-700 leading-relaxed text-justify">
+        <section class="space-y-3">
+          <h2 class="font-serif text-2xl sm:text-3xl font-bold text-flamenco-ink text-center">4. Actualización de esta Política</h2>
           <p>
-            Este sitio web es de acceso libre y puramente informativo. <strong>No dispone de formularios de registro, suscripciones, pasarelas de pago ni sistemas de recogida directa de datos personales</strong> de las personas visitantes.
+            El <strong>CEIP Francisco Alcalá</strong> podrá actualizar la presente Política de Cookies si se incorporan nuevos recursos audiovisuales o herramientas educativas en el proyecto. Para cualquier consulta relacionada con este sitio web, puede contactar con el centro en <strong>21002999.edu@juntadeandalucia.es</strong>.
           </p>
-          <p>
-            En caso de que algún usuario, familia o institución se ponga en contacto voluntariamente con el centro a través del correo electrónico oficial (<strong>21002999.edu@juntadeandalucia.es</strong>) o de los teléfonos de Dirección y Secretaría, sus datos serán tratados únicamente para atender dicha consulta o comunicación educativa, conforme a las directrices de protección de datos de la Consejería de Desarrollo Educativo y Formación Profesional de la Junta de Andalucía, sin cederse jamás a terceros salvo obligación legal.
-          </p>
-        </div>
-      </section>
+        </section>
 
-      <!-- Protección de Imagen y Derechos del Menor -->
-      <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/90 space-y-4">
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-flamenco-ink text-center">
-          4. Protección de la Imagen del Alumnado y Propiedad Intelectual
-        </h2>
-        <div class="space-y-4 text-stone-700 leading-relaxed text-justify">
-          <p>
-            Las fotografías, locuciones y muestras de trabajos escolares del alumnado incluidas en este proyecto educativo se publican al amparo de las autorizaciones expresas de derechos de imagen recabadas anualmente por el centro educativo a los padres, madres o tutores legales, velando en todo momento por el interés superior del menor y su dignidad. Queda expresamente prohibida la descarga, reproducción, manipulación o difusión de dichas imágenes por parte de terceros fuera del ámbito estricto de este proyecto escolar.
-          </p>
-          <p>
-            Respecto a los recursos musicales, carátulas discográficas y fragmentos audiovisuales vinculados a la obra de <strong>Arcángel</strong>, su inclusión responde exclusivamente al derecho de cita e ilustración con fines docentes y de difusión cultural (artículo 32 del Texto Refundido de la Ley de Propiedad Intelectual), utilizando reproductores oficiales incrustados (YouTube y Spotify) que respetan íntegramente los derechos de autor y titularidad de sus respectivos creadores y sellos discográficos.
-          </p>
-        </div>
-      </section>
-
-      <!-- Ejercicio de Derechos -->
-      <section class="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-stone-200/90 space-y-4">
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-flamenco-ink text-center">
-          5. Ejercicio de Derechos de las Personas Interesadas
-        </h2>
-        <p class="text-stone-700 leading-relaxed text-justify">
-          Cualquier persona interesada, así como los representantes legales del alumnado, pueden ejercer sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y retirada del consentimiento respecto a cualquier contenido publicado en esta web dirigiendo una comunicación escrita a la dirección postal del <strong>CEIP Francisco Alcalá</strong> (C/ Pinadero, s/n, 21860 - Villalba del Alcor, Huelva) o mediante correo electrónico a <strong>21002999.edu@juntadeandalucia.es</strong>.
-        </p>
-      </section>
-
-      <!-- Botones de Navegación Legal -->
-      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
-        <a href="index.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-flamenco-crimson hover:bg-flamenco-wine text-white font-semibold shadow-sm transition-colors">
-          <i data-lucide="arrow-left" class="w-4 h-4"></i>
-          Volver a la web principal
-        </a>
-        <a href="cookies.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-flamenco-sand text-flamenco-ink border border-stone-300 font-semibold transition-colors">
-          <i data-lucide="cookie" class="w-4 h-4 text-flamenco-crimson"></i>
-          Ver Política de Cookies
-        </a>
-      </div>
-
+      </article>
     </div>
   </main>
 
   <!-- PIE DE PÁGINA -->
-  <footer class="bg-flamenco-dark text-stone-300 py-14 border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+  <footer class="bg-flamenco-dark text-stone-300 py-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         <div class="flex items-center gap-4">
           <img 
             src="https://raw.githubusercontent.com/maestrotemp21/imgen/main/LOGO%20COLEGIO.png" 
             onerror="this.onerror=null;this.src='https://github.com/maestrotemp21/imgen/blob/main/LOGO%20COLEGIO.png?raw=true';"
             alt="Logo CEIP Francisco Alcalá" 
-            class="h-16 w-16 object-contain"
+            class="h-14 w-14 object-contain"
           />
           <div>
-            <p class="font-serif text-xl sm:text-2xl font-bold text-white">Homenaje a Arcángel</p>
-            <p class="text-xs sm:text-sm text-stone-400">CEIP Francisco Alcalá · C/ Pinadero, s/n · 21860 Villalba del Alcor (Huelva)</p>
+            <p class="font-serif text-xl font-bold text-white">Homenaje a Arcángel</p>
+            <p class="text-xs text-stone-400">CEIP Francisco Alcalá · C/ Pinadero, s/n · 21860 Villalba del Alcor (Huelva)</p>
           </div>
         </div>
 
-        <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-right">
-          <div class="space-y-0.5">
-            <span class="block text-xs uppercase tracking-widest text-flamenco-gold font-semibold">Desarrollo y diseño</span>
-            <span class="block text-sm sm:text-base font-medium text-white">Javier Saavedra Valdayo</span>
-          </div>
-          <img 
-            src="https://raw.githubusercontent.com/maestrotemp21/imgen/main/Design%20JSV%20logo%20blanco.png" 
-            alt="Design JSV — Javier Saavedra Valdayo" 
-            class="h-16 sm:h-20 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
-          />
+        <div class="flex flex-wrap items-center justify-center gap-5 text-xs text-stone-400">
+          <a href="index.html" class="hover:text-flamenco-gold transition-colors">Inicio</a>
+          <span>·</span>
+          <a href="privacidad.html" class="hover:text-flamenco-gold transition-colors">Política de Privacidad</a>
+          <span>·</span>
+          <a href="cookies.html" class="text-flamenco-gold font-semibold">Política de Cookies</a>
         </div>
-      </div>
-
-      <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs text-stone-400">
-        <a href="index.html" class="hover:text-flamenco-gold transition-colors">Inicio</a>
-        <span>·</span>
-        <a href="privacidad.html" class="text-flamenco-gold font-semibold">Política de Privacidad</a>
-        <span>·</span>
-        <a href="cookies.html" class="hover:text-flamenco-gold transition-colors">Política de Cookies</a>
       </div>
     </div>
   </footer>
 
   <script>
     lucide.createIcons();
-    const mobileBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
   </script>
 </body>
 </html>
