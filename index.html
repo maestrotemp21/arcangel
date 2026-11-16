@@ -181,20 +181,70 @@
   <!-- SECCIÓN 1: ARCÁNGEL ES FLAMENCO Y EL FLAMENCO ES ARCÁNGEL -->
   <section id="esencia" class="py-20 sm:py-24 bg-flamenco-sand/75 border-b border-stone-200/80">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-      <!-- Banner Horizontal Completo antes del texto -->
-      <div 
-        onclick="openLightbox('https://raw.githubusercontent.com/maestrotemp21/imgen/main/cartel%20Arc%C3%A1ngel%20es%20flamenco.jpg', 'Arcángel es flamenco y el flamenco es Arcángel')"
-        class="cursor-pointer group relative w-full rounded-3xl overflow-hidden shadow-2xl border-2 border-flamenco-gold/40 bg-flamenco-dark"
-      >
-        <img 
-          src="https://raw.githubusercontent.com/maestrotemp21/imgen/main/cartel%20Arc%C3%A1ngel%20es%20flamenco.jpg" 
-          alt="Arcángel es flamenco y el flamenco es Arcángel" 
-          class="w-full h-auto object-contain group-hover:scale-[1.015] transition-transform duration-500"
-        />
-        <div class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 px-3.5 py-1.5 rounded-xl bg-black/75 text-white text-xs sm:text-sm flex items-center gap-1.5 backdrop-blur-sm">
-          <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-flamenco-gold"></i>
-          Ampliar imagen
+      
+      <!-- Banner Horizontal + Barra de Audio Interactiva -->
+      <div class="space-y-4">
+        <div 
+          id="esencia-banner-card"
+          onmouseenter="handleBannerHover()"
+          onclick="openLightbox('https://raw.githubusercontent.com/maestrotemp21/imgen/main/cartel%20Arc%C3%A1ngel%20es%20flamenco.jpg', 'Arcángel es flamenco y el flamenco es Arcángel')"
+          class="cursor-pointer group relative w-full rounded-3xl overflow-hidden shadow-2xl border-2 border-flamenco-gold/40 bg-flamenco-dark"
+        >
+          <img 
+            src="https://raw.githubusercontent.com/maestrotemp21/imgen/main/cartel%20Arc%C3%A1ngel%20es%20flamenco.jpg" 
+            alt="Arcángel es flamenco y el flamenco es Arcángel" 
+            class="w-full h-auto object-contain group-hover:scale-[1.015] transition-transform duration-500"
+          />
+          <div class="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 px-3.5 py-1.5 rounded-xl bg-black/75 text-white text-xs sm:text-sm flex items-center gap-1.5 backdrop-blur-sm">
+            <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-flamenco-gold"></i>
+            Ampliar imagen
+          </div>
         </div>
+
+        <!-- Controles de Audio junto a la imagen (Altavoz + Play/Pause + Stop) -->
+        <div class="bg-flamenco-dark text-white rounded-2xl px-5 py-3.5 shadow-lg border border-flamenco-gold/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div id="audio-speaker-badge" class="w-10 h-10 rounded-xl bg-flamenco-crimson/30 border border-flamenco-gold/40 text-flamenco-gold flex items-center justify-center shrink-0 transition-all">
+              <i id="audio-speaker-icon" data-lucide="volume-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <p class="font-serif text-lg sm:text-xl font-bold text-white leading-tight">«Arcángel es flamenco y el flamenco es Arcángel»</p>
+              <p id="audio-status-text" class="text-xs text-stone-300">Pasa el cursor sobre la imagen o usa los controles para escuchar</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2.5 shrink-0">
+            <!-- Botón Play / Pause -->
+            <button 
+              type="button"
+              id="audio-playpause-btn"
+              onclick="toggleEsenciaAudio()"
+              aria-label="Reproducir o pausar audio"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-flamenco-crimson hover:bg-flamenco-wine text-white text-xs sm:text-sm font-semibold shadow transition-all"
+            >
+              <i id="audio-playpause-icon" data-lucide="play" class="w-4 h-4 fill-current"></i>
+              <span id="audio-playpause-label">Reproducir</span>
+            </button>
+
+            <!-- Botón Parar (Stop) -->
+            <button 
+              type="button"
+              id="audio-stop-btn"
+              onclick="stopEsenciaAudio()"
+              aria-label="Parar audio"
+              class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-stone-200 hover:text-white border border-white/15 text-xs sm:text-sm font-semibold transition-all"
+            >
+              <i data-lucide="square" class="w-4 h-4 fill-current"></i>
+              <span>Parar</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Pista de Audio MP3 -->
+        <audio id="esencia-audio" preload="auto">
+          <source src="https://raw.githubusercontent.com/maestrotemp21/arcangel/main/Javier%20Jr%20Arc%C3%A1ngel%20es%20flamenco.MP3" type="audio/mpeg" />
+          <source src="https://github.com/maestrotemp21/arcangel/raw/refs/heads/main/Javier%20Jr%20Arc%C3%A1ngel%20es%20flamenco.MP3" type="audio/mpeg" />
+        </audio>
       </div>
 
       <!-- Texto Manifiesto debajo de la foto -->
@@ -918,6 +968,59 @@
     const mobileMenu = document.getElementById('mobile-menu');
     mobileBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+    });
+
+    // Control de Audio del Banner "Arcángel es flamenco y el flamenco es Arcángel"
+    const esenciaAudio = document.getElementById('esencia-audio');
+    const playPauseBtn = document.getElementById('audio-playpause-btn');
+    const playPauseLabel = document.getElementById('audio-playpause-label');
+    const speakerBadge = document.getElementById('audio-speaker-badge');
+    const statusText = document.getElementById('audio-status-text');
+
+    function updateAudioUI(isPlaying) {
+      if (isPlaying) {
+        playPauseBtn.innerHTML = '<i data-lucide="pause" class="w-4 h-4 fill-current"></i><span id="audio-playpause-label">Pausar</span>';
+        speakerBadge.classList.add('animate-pulse', 'bg-flamenco-crimson', 'text-white');
+        speakerBadge.classList.remove('bg-flamenco-crimson/30', 'text-flamenco-gold');
+        statusText.textContent = 'Reproduciendo locución y música...';
+      } else {
+        playPauseBtn.innerHTML = '<i data-lucide="play" class="w-4 h-4 fill-current"></i><span id="audio-playpause-label">Reproducir</span>';
+        speakerBadge.classList.remove('animate-pulse', 'bg-flamenco-crimson', 'text-white');
+        speakerBadge.classList.add('bg-flamenco-crimson/30', 'text-flamenco-gold');
+        statusText.textContent = 'Pasa el cursor sobre la imagen o usa los controles para escuchar';
+      }
+      lucide.createIcons();
+    }
+
+    function handleBannerHover() {
+      if (esenciaAudio.paused) {
+        esenciaAudio.play()
+          .then(() => updateAudioUI(true))
+          .catch(() => {
+            statusText.textContent = 'Pulsa en el botón Reproducir para activar el sonido';
+          });
+      }
+    }
+
+    function toggleEsenciaAudio() {
+      if (esenciaAudio.paused) {
+        esenciaAudio.play().then(() => updateAudioUI(true));
+      } else {
+        esenciaAudio.pause();
+        updateAudioUI(false);
+        statusText.textContent = 'Audio en pausa';
+      }
+    }
+
+    function stopEsenciaAudio() {
+      esenciaAudio.pause();
+      esenciaAudio.currentTime = 0;
+      updateAudioUI(false);
+    }
+
+    esenciaAudio.addEventListener('ended', () => {
+      esenciaAudio.currentTime = 0;
+      updateAudioUI(false);
     });
 
     // Reproducir documental de YouTube al pulsar sobre la portada
