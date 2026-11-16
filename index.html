@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homenaje a Arcángel — Proyecto Educativo y Cultural</title>
+  <meta name="description" content="Proyecto educativo y cultural de homenaje al cantaor onubense Arcángel. Documental, discografía, Museo Flamenco, creaciones del alumnado y programa del acto." />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            flamenco: {
+              dark: '#140C0A',
+              wine: '#5C1622',
+              crimson: '#8B1E2F',
+              gold: '#C89B3C',
+              goldLight: '#E5C16C',
+              cream: '#FAF6F0',
+              sand: '#EFE7DC',
+              ink: '#241916'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF6F0;
+      color: #241916;
+    }
+    .hero-gradient {
+      background: linear-gradient(180deg, rgba(20, 12, 10, 0.82) 0%, rgba(20, 12, 10, 0.72) 50%, rgba(20, 12, 10, 0.95) 100%);
+    }
+    .card-hover {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 35px -10px rgba(36, 25, 22, 0.14);
+    }
+    #lightbox {
+      backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-flamenco-crimson selection:text-white">
+
+  <!-- NAVEGACIÓN SUPERIOR -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-flamenco-dark/90 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#inicio" class="flex items-center gap-3 group">
+        <img 
+          src="https://github.com/maestrotemp21/imgen/blob/main/LOGO%20COLEGIO.png?raw=true&v=2" 
+          alt="Logo del Colegio" 
+          class="h-12 w-12 object-contain rounded-lg bg-white/95 p-1 shadow-sm group-hover:scale-105 transition-transform"
+        />
+        <div>
+          <span class="block text-xs uppercase tracking-[0.2em] text-flamenco-gold font-semibold">Proyecto Educativo</span>
+          <span class="font-serif text-xl sm:text-2xl font-bold text-white tracking-wide">Homenaje a Arcángel</span>
+        </div>
+      </a>
+
+      <!-- Menú Desktop -->
+      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-stone-200">
+        <a href="#esencia" class="hover:text-flamenco-gold transition-colors">Esencia</a>
+        <a href="#trayectoria" class="hover:text-flamenco-gold transition-colors">Trayectoria</a>
+        <a href="#documental" class="hover:text-flamenco-gold transition-colors">Documental</a>
+        <a href="#discografia" class="hover:text-flamenco-gold transition-colors">Discografía</a>
+        <a href="#museo" class="hover:text-flamenco-gold transition-colors">Museo Flamenco</a>
+        <a href="#alumnado" class="hover:text-flamenco-gold transition-colors">Alumnado</a>
+        <a href="#programa" class="px-4 py-2 rounded-full bg-flamenco-crimson hover:bg-flamenco-wine text-white transition-colors shadow-sm">Programa del Acto</a>
+      </nav>
+
+      <!-- Botón Menú Móvil -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 text-stone-200 hover:text-white" aria-label="Abrir menú">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Menú Móvil Desplegable -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-flamenco-dark border-b border-white/10 px-6 py-4 space-y-3 text-stone-200">
+      <a href="#esencia" class="block py-1.5 hover:text-flamenco-gold">Esencia</a>
+      <a href="#trayectoria" class="block py-1.5 hover:text-flamenco-gold">Trayectoria</a>
+      <a href="#documental" class="block py-1.5 hover:text-flamenco-gold">Documental</a>
+      <a href="#discografia" class="block py-1.5 hover:text-flamenco-gold">Discografía</a>
+      <a href="#museo" class="block py-1.5 hover:text-flamenco-gold">Museo Flamenco</a>
+      <a href="#alumnado" class="block py-1.5 hover:text-flamenco-gold">Alumnado</a>
+      <a href="#programa" class="block py-2 text-center rounded-lg bg-flamenco-crimson text-white font-semibold">Programa del Acto</a>
+    </div>
+  </header>
+
+  <!-- SECCIÓN HERO / PORTADA -->
+  <section id="inicio" class="relative min-h-[92vh] flex items-center pt-20 overflow-hidden bg-flamenco-dark">
+    <img 
+      src="https://github.com/maestrotemp21/imgen/blob/main/cartel%20Arc%C3%A1ngel%20es%20flamenco.jpg?raw=true" 
+      alt="Arcángel es Flamenco" 
+      class="absolute inset-0 w-full h-full object-cover object-center opacity-40 scale-105"
+    />
+    <div class="hero-gradient absolute inset-0"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 text-white space-y-6">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-flamenco-gold/20 border border-flamenco-gold/40 text-flamenco-goldLight text-xs font-semibold uppercase tracking-widest">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+          Arte, Escuela y Patrimonio Andaluz
+        </div>
+
+        <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.08] tracking-tight">
+          Homenaje a <span class="text-flamenco-gold italic">Arcángel</span>
+        </h1>
+
+        <p class="text-lg sm:text-xl text-stone-200 max-w-2xl leading-relaxed font-normal">
+          Un recorrido pedagógico, artístico y emocional por la vida y el cante del maestro onubense Francisco José Arcángel Ramos, creado desde las aulas para acercar el flamenco a toda la comunidad educativa.
+        </p>
+
+        <!-- Créditos y Agradecimientos del Acto -->
+        <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-5 space-y-2.5 text-sm text-stone-100">
+          <p>
+            <span class="text-flamenco-goldLight font-semibold">Coordinador del acto:</span> Javier Saavedra Valdayo.
+          </p>
+          <p>
+            <span class="text-flamenco-goldLight font-semibold">Actuaciones musicales:</span> Carmen Carballar López.
+          </p>
+          <p class="text-stone-200 leading-relaxed pt-1 border-t border-white/10">
+            <span class="text-flamenco-goldLight font-semibold">Agradecimientos:</span> al Equipo Directivo, Claustro de Profesores, Conserje <strong>Inmaculada del Toro Romero</strong>, Administración y Servicios <strong>Dolores Díaz Báñez</strong>, <strong>AMPA Gironda</strong> y al resto de la comunidad educativa.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-4 pt-1">
+          <a href="#documental" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-flamenco-crimson hover:bg-flamenco-wine text-white font-semibold shadow-lg shadow-flamenco-crimson/30 transition-all">
+            <i data-lucide="play-circle" class="w-5 h-5"></i>
+            Ver Documental
+          </a>
+          <a href="#discografia" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold backdrop-blur-sm transition-all">
+            <i data-lucide="disc-3" class="w-5 h-5 text-flamenco-gold"></i>
+            Escuchar Discografía
+          </a>
+        </div>
+      </div>
+
+      <!-- Cartel Oficial Destacado -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div 
+          onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/CARTEL%20HOMENAJE%20A%20ARC%C3%81NGEL%20A3(3508%20x%204961%20px).jpg?raw=true', 'Cartel Oficial — Homenaje a Arcángel')"
+          class="cursor-pointer group relative max-w-sm w-full rounded-2xl overflow-hidden shadow-2xl border-2 border-flamenco-gold/40 bg-flamenco-dark"
+        >
+          <img 
+            src="https://github.com/maestrotemp21/imgen/blob/main/CARTEL%20HOMENAJE%20A%20ARC%C3%81NGEL%20A3(3508%20x%204961%20px).jpg?raw=true" 
+            alt="Cartel Oficial Homenaje a Arcángel" 
+            class="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-500"
+          />
+          <div class="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 text-white text-xs flex items-center gap-1.5 backdrop-blur-sm">
+            <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-flamenco-gold"></i>
+            Ampliar cartel
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUEVA SECCIÓN: ARCÁNGEL ES FLAMENCO Y EL FLAMENCO ES ARCÁNGEL -->
+  <section id="esencia" class="py-20 sm:py-24 bg-flamenco-sand/75 border-b border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <!-- Imagen "Arcángel es flamenco" -->
+        <div class="lg:col-span-5">
+          <div 
+            onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/cartel%20Arc%C3%A1ngel%20es%20flamenco.jpg?raw=true', 'Arcángel es flamenco y el flamenco es Arcángel')"
+            class="cursor-pointer group relative rounded-3xl overflow-hidden shadow-xl border-2 border-flamenco-gold/30 bg-flamenco-dark"
+          >
+            <img 
+              src="https://github.com/maestrotemp21/imgen/blob/main/cartel%20Arc%C3%A1ngel%20es%20flamenco.jpg?raw=true" 
+              alt="Arcángel es flamenco y el flamenco es Arcángel" 
+              class="w-full h-auto object-cover group-hover:scale-[1.03] transition-transform duration-500"
+            />
+            <div class="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 text-white text-xs flex items-center gap-1.5 backdrop-blur-sm">
+              <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-flamenco-gold"></i>
+              Ampliar imagen
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto Manifiesto -->
+        <div class="lg:col-span-7 space-y-5">
+          <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-flamenco-crimson">Identidad y Raíz</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold text-flamenco-ink leading-tight">
+            «Arcángel es flamenco y el flamenco es Arcángel»
+          </h2>
+
+          <div class="space-y-4 text-stone-700 text-base sm:text-[17px] leading-relaxed">
+            <p>
+              Hay voces que llevan dentro el alma de una tierra. Voces que guardan la memoria de sus pueblos, que emocionan a generaciones y que consiguen que una cultura siga latiendo con fuerza. La voz de Arcángel es una de ellas.
+            </p>
+            <p>
+              En su cante vive Alosno, se siente Huelva y se reconoce Andalucía. Cada quejío recoge la sabiduría de quienes le precedieron; cada interpretación transmite pasión, sensibilidad y respeto por una herencia que ha sabido hacer suya.
+            </p>
+            <p>
+              Arcángel representa el flamenco en toda su grandeza: sus raíces, su historia, su sentimiento y su capacidad de seguir abriendo caminos. Es la voz que une a los maestros de ayer con las nuevas generaciones, que convierte la tradición en emoción y que lleva el nombre de nuestra tierra por escenarios de todo el mundo.
+            </p>
+            <p>
+              Su trayectoria, su personalidad y su manera de entender el arte lo han convertido en un referente. En cada actuación deja una parte de su alma y nos regala una forma única de sentir el flamenco.
+            </p>
+            <p>
+              Por eso, cuando decimos <strong>«Arcángel es flamenco y el flamenco es Arcángel»</strong>, hablamos de una unión profunda entre un artista y una cultura, entre una voz y sus raíces, entre una historia personal y el sentimiento de todo un pueblo.
+            </p>
+            <p>
+              Porque el flamenco también está hecho de personas que lo sienten, lo viven y lo transmiten. Y Arcángel ha sabido convertir su voz en un puente entre la memoria de nuestros mayores y la ilusión de quienes seguirán manteniendo viva esta herencia.
+            </p>
+            <blockquote class="p-5 rounded-2xl bg-white/90 border-l-4 border-flamenco-crimson shadow-sm font-serif text-xl sm:text-2xl italic text-flamenco-ink">
+              Arcángel es flamenco porque en su voz habita Andalucía. Y el flamenco es Arcángel porque en su arte encontramos una manera única de sentir, comprender y transmitir nuestras raíces.
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 1: TRAYECTORIA E HITOS -->
+  <section id="trayectoria" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+      <span class="text-xs font-bold uppercase tracking-[0.2em] text-flamenco-crimson">Raíces y Reconocimiento</span>
+      <h2 class="font-serif text-3xl sm:text-5xl font-bold text-flamenco-ink">Una vida entregada al cante</h2>
+      <p class="text-stone-600 text-base sm:text-lg">
+        Desde sus primeros pasos en Huelva hasta convertirse en referente internacional del flamenco contemporáneo y ganador del Latin Grammy.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Hito 1 -->
+      <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 card-hover flex flex-col">
+        <div class="h-64 overflow-hidden cursor-pointer" onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/Arc%C3%A1ngel%2010%20a%C3%B1os.jpg?raw=true', 'Los inicios de Arcángel en Huelva')">
+          <img 
+            src="https://github.com/maestrotemp21/imgen/blob/main/Arc%C3%A1ngel%2010%20a%C3%B1os.jpg?raw=true" 
+            alt="Arcángel a los 10 años" 
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-flamenco-gold">Los Inicios</span>
+            <h3 class="font-serif text-2xl font-bold mt-1 text-flamenco-ink">Vocación temprana en Huelva</h3>
+            <p class="text-stone-600 text-sm mt-2 leading-relaxed">
+              Con apenas diez años ya despuntaba en los concursos infantiles de fandangos de su tierra natal, mostrando una sensibilidad y un dominio del compás fuera de lo común.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Hito 2 -->
+      <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 card-hover flex flex-col">
+        <div class="h-64 overflow-hidden cursor-pointer" onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/cartel%20Arc%C3%A1ngel%20es%20flamenco.jpg?raw=true', 'Arcángel es Flamenco — Identidad y vanguardia')">
+          <img 
+            src="https://github.com/maestrotemp21/imgen/blob/main/cartel%20Arc%C3%A1ngel%20es%20flamenco.jpg?raw=true" 
+            alt="Arcángel es Flamenco" 
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-flamenco-crimson">Tradición y Vanguardia</span>
+            <h3 class="font-serif text-2xl font-bold mt-1 text-flamenco-ink">El respeto a la raíz</h3>
+            <p class="text-stone-600 text-sm mt-2 leading-relaxed">
+              Su cante tiende puentes entre los maestros clásicos y la creación actual, dialogando con la música barroca, la sinfónica y las nuevas generaciones de aficionados.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Hito 3 -->
+      <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 card-hover flex flex-col">
+        <div class="h-64 overflow-hidden cursor-pointer" onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/arcangel%20grammy.jpg?raw=true', 'Arcángel — Premio Latin Grammy')">
+          <img 
+            src="https://github.com/maestrotemp21/imgen/blob/main/arcangel%20grammy.jpg?raw=true" 
+            alt="Arcángel con el Latin Grammy" 
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-flamenco-gold">Proyección Internacional</span>
+            <h3 class="font-serif text-2xl font-bold mt-1 text-flamenco-ink">Reconocimiento Latin Grammy</h3>
+            <p class="text-stone-600 text-sm mt-2 leading-relaxed">
+              Galardonado con el Latin Grammy al Mejor Álbum de Música Flamenca por <em>«Al Este del Cante»</em>, llevando el nombre de Huelva y Andalucía a los grandes escenarios del mundo.
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: DOCUMENTAL "ARCÁNGEL: EL ALMA A CONTRALUZ" -->
+  <section id="documental" class="py-20 bg-flamenco-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-5 space-y-5">
+          <span class="inline-block text-xs font-bold uppercase tracking-[0.2em] text-flamenco-gold">Producción Audiovisual</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold leading-tight">
+            Arcángel: <span class="italic text-flamenco-goldLight">El alma a contraluz</span>
+          </h2>
+          <p class="text-stone-300 leading-relaxed">
+            Un retrato íntimo y educativo sobre la dimensión humana y artística del cantaor. Descubre sus reflexiones sobre el esfuerzo, la identidad andaluza y el valor de la música como herramienta de transformación.
+          </p>
+
+          <div class="pt-2 flex items-center gap-4">
+            <img 
+              src="https://github.com/maestrotemp21/imgen/blob/main/Arc%C3%A1ngel_%20El%20alma%20a%20contraluz-1.png?raw=true" 
+              alt="Cartel Arcángel El alma a contraluz" 
+              onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/Arc%C3%A1ngel_%20El%20alma%20a%20contraluz-1.png?raw=true', 'Cartel Documental: Arcángel, El alma a contraluz')"
+              class="w-20 h-28 object-cover rounded-lg border border-white/20 cursor-pointer hover:scale-105 transition-transform"
+            />
+            <div class="space-y-2">
+              <p class="text-xs text-stone-400">Pulsa en el reproductor para ver el documental completo o ábrelo directamente en YouTube.</p>
+              <a 
+                href="https://youtu.be/dZ_DVH1RoA4" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-sm font-semibold text-flamenco-gold hover:text-flamenco-goldLight transition-colors"
+              >
+                <i data-lucide="external-link" class="w-4 h-4"></i>
+                Ver en YouTube
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reproductor Interactivo con Portada Oficial -->
+        <div class="lg:col-span-7">
+          <div id="doc-player-wrapper" class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/15 bg-black group">
+            <img 
+              src="https://github.com/maestrotemp21/imgen/blob/main/Portada%20Documental.png?raw=true" 
+              alt="Portada Documental Arcángel" 
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+              <button 
+                onclick="playDocumentary()" 
+                aria-label="Reproducir documental"
+                class="w-20 h-20 rounded-full bg-flamenco-crimson hover:bg-flamenco-gold text-white hover:text-flamenco-dark flex items-center justify-center shadow-2xl transition-all duration-300 scale-100 group-hover:scale-110"
+              >
+                <i data-lucide="play" class="w-9 h-9 fill-current ml-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Miniaturas / Capítulos Visuales de YouTube -->
+      <div class="mt-16 pt-12 border-t border-white/10">
+        <h3 class="font-serif text-2xl font-bold text-white mb-6">Galería de escenas y materiales audiovisuales</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/IMAGENES%20YOUTUBE%20(14).png?raw=true" alt="Escena documental 1" onclick="openLightbox(this.src, 'Material audiovisual — Escena 1')" class="rounded-xl aspect-video object-cover border border-white/10 cursor-pointer hover:opacity-90 hover:scale-105 transition-all" />
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/IMAGENES%20YOUTUBE%20(15).png?raw=true" alt="Escena documental 2" onclick="openLightbox(this.src, 'Material audiovisual — Escena 2')" class="rounded-xl aspect-video object-cover border border-white/10 cursor-pointer hover:opacity-90 hover:scale-105 transition-all" />
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/IMAGENES%20YOUTUBE%20(16).png?raw=true" alt="Escena documental 3" onclick="openLightbox(this.src, 'Material audiovisual — Escena 3')" class="rounded-xl aspect-video object-cover border border-white/10 cursor-pointer hover:opacity-90 hover:scale-105 transition-all" />
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/IMAGENES%20YOUTUBE%20(17).png?raw=true" alt="Escena documental 4" onclick="openLightbox(this.src, 'Material audiovisual — Escena 4')" class="rounded-xl aspect-video object-cover border border-white/10 cursor-pointer hover:opacity-90 hover:scale-105 transition-all" />
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/IMAGENES%20YOUTUBE%20(18).png?raw=true" alt="Escena documental 5" onclick="openLightbox(this.src, 'Material audiovisual — Escena 5')" class="rounded-xl aspect-video object-cover border border-white/10 cursor-pointer hover:opacity-90 hover:scale-105 transition-all" />
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/IMAGENES%20YOUTUBE%20(31).png?raw=true" alt="Escena documental 6" onclick="openLightbox(this.src, 'Material audiovisual — Escena 6')" class="rounded-xl aspect-video object-cover border border-white/10 cursor-pointer hover:opacity-90 hover:scale-105 transition-all" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: DISCOGRAFÍA Y LISTAS DE REPRODUCCIÓN -->
+  <section id="discografia" class="py-20 sm:py-24 bg-flamenco-sand/60 border-b border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-flamenco-crimson">Audición en el Aula y en Familia</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-flamenco-ink">Discografía Seleccionada</h2>
+        <p class="text-stone-600 text-base sm:text-lg">
+          Accede directamente a las listas de reproducción completas de los trabajos discográficos más emblemáticos de Arcángel en YouTube.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- 1. HEREJE -->
+        <a href="https://www.youtube.com/watch?v=u5iknt08voQ&list=PLKX6IsOiVLbI" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl p-6 border border-stone-200/90 shadow-sm card-hover flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-flamenco-crimson/10 text-flamenco-crimson text-xs font-bold">2023</span>
+              <div class="w-10 h-10 rounded-full bg-flamenco-dark text-flamenco-gold flex items-center justify-center group-hover:bg-flamenco-crimson group-hover:text-white transition-colors">
+                <i data-lucide="disc-3" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-flamenco-ink group-hover:text-flamenco-crimson transition-colors">Hereje</h3>
+            <p class="text-stone-600 text-sm mt-2 leading-relaxed">
+              Un trabajo libre y contemporáneo donde dialoga con grandes compositores actuales sin perder la esencia jonda.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-flamenco-crimson">
+            <span>Escuchar álbum completo</span>
+            <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+          </div>
+        </a>
+
+        <!-- 2. AL ESTE DEL CANTE -->
+        <a href="https://www.youtube.com/watch?v=-WzvVZTigGE&list=PLTZOiEaH0jTA" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl p-6 border border-flamenco-gold/50 shadow-sm card-hover flex flex-col justify-between relative overflow-hidden">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-flamenco-gold/20 text-flamenco-ink text-xs font-bold">2018 · Latin Grammy</span>
+              <div class="w-10 h-10 rounded-full bg-flamenco-gold text-flamenco-dark flex items-center justify-center group-hover:bg-flamenco-crimson group-hover:text-white transition-colors">
+                <i data-lucide="award" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-flamenco-ink group-hover:text-flamenco-crimson transition-colors">Al Este del Cante</h3>
+            <p class="text-stone-600 text-sm mt-2 leading-relaxed">
+              Grabado junto a las Nuevas Voces Búlgaras; galardonado con el Latin Grammy al Mejor Álbum de Música Flamenca.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-flamenco-crimson">
+            <span>Escuchar álbum completo</span>
+            <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+          </div>
+        </a>
+
+        <!-- 3. TABLAO -->
+        <a href="https://www.youtube.com/watch?v=25DpX4SKhMI&list=PLGezyq0TX1nw" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl p-6 border border-stone-200/90 shadow-sm card-hover flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-flamenco-crimson/10 text-flamenco-crimson text-xs font-bold">2015</span>
+              <div class="w-10 h-10 rounded-full bg-flamenco-dark text-flamenco-gold flex items-center justify-center group-hover:bg-flamenco-crimson group-hover:text-white transition-colors">
+                <i data-lucide="disc-3" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-flamenco-ink group-hover:text-flamenco-crimson transition-colors">Tablao</h3>
+            <p class="text-stone-600 text-sm mt-2 leading-relaxed">
+              Grabado en directo en los templos históricos del flamenco, reivindicando la cercanía, el compás y la verdad del tablao.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-flamenco-crimson">
+            <span>Escuchar álbum completo</span>
+            <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+          </div>
+        </a>
+
+        <!-- 4. QUIJOTE DE LOS SUEÑOS -->
+        <a href="https://www.youtube.com/watch?v=p3DuaufMu28&list=PLVWsBEBkFxxQ" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl p-6 border border-stone-200/90 shadow-sm card-hover flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-flamenco-crimson/10 text-flamenco-crimson text-xs font-bold">2011</span>
+              <div class="w-10 h-10 rounded-full bg-flamenco-dark text-flamenco-gold flex items-center justify-center group-hover:bg-flamenco-crimson group-hover:text-white transition-colors">
+                <i data-lucide="disc-3" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-flamenco-ink group-hover:text-flamenco-crimson transition-colors">Quijote de los Sueños</h3>
+            <p class="text-stone-600 text-sm mt-2 leading-relaxed">
+              Obra de madurez artística en la que explora nuevos horizontes sonoros con el sello personal de su voz.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-flamenco-crimson">
+            <span>Escuchar álbum completo</span>
+            <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+          </div>
+        </a>
+
+        <!-- 5. ROPA VIEJA -->
+        <a href="https://www.youtube.com/watch?v=fLF1ncDU13w&list=PLVqcetlT6vpw" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl p-6 border border-stone-200/90 shadow-sm card-hover flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-flamenco-crimson/10 text-flamenco-crimson text-xs font-bold">2006</span>
+              <div class="w-10 h-10 rounded-full bg-flamenco-dark text-flamenco-gold flex items-center justify-center group-hover:bg-flamenco-crimson group-hover:text-white transition-colors">
+                <i data-lucide="disc-3" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-flamenco-ink group-hover:text-flamenco-crimson transition-colors">Ropa Vieja</h3>
+            <p class="text-stone-600 text-sm mt-2 leading-relaxed">
+              Un homenaje a la memoria del cante clásico revitalizado con sensibilidad actual y riqueza rítmica.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-flamenco-crimson">
+            <span>Escuchar álbum completo</span>
+            <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+          </div>
+        </a>
+
+        <!-- 6. LA CALLE PERDÍA -->
+        <a href="https://www.youtube.com/watch?v=N_s1kHT11KU&list=PLe2fEck4qvTg" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl p-6 border border-stone-200/90 shadow-sm card-hover flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-flamenco-crimson/10 text-flamenco-crimson text-xs font-bold">2004</span>
+              <div class="w-10 h-10 rounded-full bg-flamenco-dark text-flamenco-gold flex items-center justify-center group-hover:bg-flamenco-crimson group-hover:text-white transition-colors">
+                <i data-lucide="disc-3" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-flamenco-ink group-hover:text-flamenco-crimson transition-colors">La Calle Perdía</h3>
+            <p class="text-stone-600 text-sm mt-2 leading-relaxed">
+              Segundo álbum de estudio con profundas raíces onubenses, fandangos de Huelva, alegrías y bulerías.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-flamenco-crimson">
+            <span>Escuchar álbum completo</span>
+            <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+          </div>
+        </a>
+
+        <!-- 7. ARCÁNGEL -->
+        <a href="https://www.youtube.com/watch?v=BdzC41IPxys&list=PLDD9f4ow4JJ8" target="_blank" rel="noopener noreferrer" class="group bg-white rounded-2xl p-6 border border-stone-200/90 shadow-sm card-hover flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-3 py-1 rounded-full bg-flamenco-crimson/10 text-flamenco-crimson text-xs font-bold">2001 · Debut</span>
+              <div class="w-10 h-10 rounded-full bg-flamenco-dark text-flamenco-gold flex items-center justify-center group-hover:bg-flamenco-crimson group-hover:text-white transition-colors">
+                <i data-lucide="disc-3" class="w-5 h-5"></i>
+              </div>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-flamenco-ink group-hover:text-flamenco-crimson transition-colors">Arcángel</h3>
+            <p class="text-stone-600 text-sm mt-2 leading-relaxed">
+              Su disco debut homónimo, considerado una de las obras fundamentales del flamenco de principios del siglo XXI.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-stone-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-flamenco-crimson">
+            <span>Escuchar álbum completo</span>
+            <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4: MUSEO FLAMENCO EN EL COLEGIO -->
+  <section id="museo" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div class="max-w-2xl space-y-3">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-flamenco-crimson">Exposición Didáctica</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-flamenco-ink">Museo Flamenco</h2>
+        <p class="text-stone-600 text-base sm:text-lg">
+          Un espacio expositivo diseñado en el centro educativo con paneles informativos, discografía, palos del flamenco e historia del cante de Huelva.
+        </p>
+      </div>
+      <button 
+        onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/CARTEL%20MUSEO%20FLAMENCO%20(3508%20x%204961%20px).jpg?raw=true', 'Cartel Oficial del Museo Flamenco')"
+        class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-flamenco-sand hover:bg-flamenco-gold/20 text-flamenco-ink font-semibold border border-flamenco-gold/30 transition-colors self-start"
+      >
+        <i data-lucide="image" class="w-4 h-4 text-flamenco-crimson"></i>
+        Ver Cartel del Museo
+      </button>
+    </div>
+
+    <!-- Vista General del Museo + Cartel -->
+    <div class="grid lg:grid-cols-12 gap-8 mb-12 items-stretch">
+      <div class="lg:col-span-8 bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 flex flex-col">
+        <div class="flex-1 overflow-hidden cursor-pointer relative group" onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/FOTOS%20ARC%C3%81NGEL%20MUSEO.png?raw=true', 'Exposición y paneles del Museo Flamenco')">
+          <img 
+            src="https://github.com/maestrotemp21/imgen/blob/main/FOTOS%20ARC%C3%81NGEL%20MUSEO.png?raw=true" 
+            alt="Exposición del Museo Flamenco" 
+            class="w-full h-full object-cover max-h-[460px] group-hover:scale-[1.02] transition-transform duration-500"
+          />
+          <div class="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 text-white text-xs flex items-center gap-1.5">
+            <i data-lucide="zoom-in" class="w-3.5 h-3.5 text-flamenco-gold"></i>
+            Ampliar exposición
+          </div>
+        </div>
+        <div class="p-5 bg-white">
+          <h3 class="font-serif text-xl font-bold text-flamenco-ink">Recorrido expositivo por la obra de Arcángel</h3>
+          <p class="text-sm text-stone-600 mt-1">Fotografías, cartelería y recursos didácticos preparados para la visita de los distintos ciclos educativos.</p>
+        </div>
+      </div>
+
+      <div class="lg:col-span-4 bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 flex flex-col">
+        <div class="flex-1 overflow-hidden cursor-pointer relative group" onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/CARTEL%20MUSEO%20FLAMENCO%20(3508%20x%204961%20px).jpg?raw=true', 'Cartel Museo Flamenco')">
+          <img 
+            src="https://github.com/maestrotemp21/imgen/blob/main/CARTEL%20MUSEO%20FLAMENCO%20(3508%20x%204961%20px).jpg?raw=true" 
+            alt="Cartel Museo Flamenco" 
+            class="w-full h-full object-cover max-h-[460px] group-hover:scale-[1.02] transition-transform duration-500"
+          />
+        </div>
+        <div class="p-5 bg-white">
+          <h3 class="font-serif text-xl font-bold text-flamenco-ink">Cartel Oficial de la Muestra</h3>
+          <p class="text-sm text-stone-600 mt-1">Identidad gráfica diseñada para guiar el itinerario cultural del centro.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Piezas y Paneles del Museo (27 a 33) -->
+    <div>
+      <h3 class="font-serif text-2xl font-bold text-flamenco-ink mb-6">Paneles y piezas destacadas</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/27.png?raw=true', 'Panel del Museo Flamenco — Pieza 1')" class="bg-white p-2.5 rounded-xl border border-stone-200 shadow-sm card-hover cursor-pointer">
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/27.png?raw=true" alt="Panel Museo 27" class="w-full h-52 object-cover rounded-lg" />
+        </div>
+        <div onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/28.png?raw=true', 'Panel del Museo Flamenco — Pieza 2')" class="bg-white p-2.5 rounded-xl border border-stone-200 shadow-sm card-hover cursor-pointer">
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/28.png?raw=true" alt="Panel Museo 28" class="w-full h-52 object-cover rounded-lg" />
+        </div>
+        <div onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/29.png?raw=true', 'Panel del Museo Flamenco — Pieza 3')" class="bg-white p-2.5 rounded-xl border border-stone-200 shadow-sm card-hover cursor-pointer">
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/29.png?raw=true" alt="Panel Museo 29" class="w-full h-52 object-cover rounded-lg" />
+        </div>
+        <div onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/30.png?raw=true', 'Panel del Museo Flamenco — Pieza 4')" class="bg-white p-2.5 rounded-xl border border-stone-200 shadow-sm card-hover cursor-pointer">
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/30.png?raw=true" alt="Panel Museo 30" class="w-full h-52 object-cover rounded-lg" />
+        </div>
+        <div onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/31.png?raw=true', 'Panel del Museo Flamenco — Pieza 5')" class="bg-white p-2.5 rounded-xl border border-stone-200 shadow-sm card-hover cursor-pointer">
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/31.png?raw=true" alt="Panel Museo 31" class="w-full h-52 object-cover rounded-lg" />
+        </div>
+        <div onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/32.png?raw=true', 'Panel del Museo Flamenco — Pieza 6')" class="bg-white p-2.5 rounded-xl border border-stone-200 shadow-sm card-hover cursor-pointer">
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/32.png?raw=true" alt="Panel Museo 32" class="w-full h-52 object-cover rounded-lg" />
+        </div>
+        <div onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/33.png?raw=true', 'Panel del Museo Flamenco — Pieza 7')" class="bg-white p-2.5 rounded-xl border border-stone-200 shadow-sm card-hover cursor-pointer">
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/33.png?raw=true" alt="Panel Museo 33" class="w-full h-52 object-cover rounded-lg" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5: EL ALUMNADO PROTAGONISTA (VÍDEO + FOTOS DESTACADAS) -->
+  <section id="alumnado" class="py-20 sm:py-24 bg-flamenco-sand/70 border-y border-stone-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-flamenco-crimson">Protagonistas en el Aula</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-flamenco-ink">El trabajo de nuestro alumnado</h2>
+        <p class="text-stone-600 text-base sm:text-lg">
+          Murales colaborativos, talleres de compás, investigación artística y actividades realizadas por todos los cursos del colegio en honor a Arcángel.
+        </p>
+      </div>
+
+      <!-- Contenedor Principal del Vídeo Resumen de las Fotos del Alumnado -->
+      <div class="max-w-4xl mx-auto mb-14">
+        <div class="bg-white p-3 sm:p-4 rounded-3xl shadow-xl border border-stone-200/90">
+          <div id="student-video-box" class="relative aspect-video rounded-2xl overflow-hidden bg-flamenco-dark">
+            <img 
+              src="https://github.com/maestrotemp21/imgen/blob/main/1.jpg?raw=true" 
+              alt="Vídeo resumen del trabajo del alumnado" 
+              class="w-full h-full object-cover opacity-55"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-flamenco-dark via-flamenco-dark/50 to-transparent flex flex-col items-center justify-center p-6 text-center text-white">
+              <div class="w-16 h-16 rounded-full bg-flamenco-crimson/90 flex items-center justify-center mb-4 shadow-lg">
+                <i data-lucide="film" class="w-8 h-8 text-white"></i>
+              </div>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold">Vídeo resumen de las actividades en el aula</h3>
+              <p class="text-stone-200 text-sm sm:text-base max-w-lg mt-2">
+                Recopilación fotográfica de los murales, talleres y creaciones realizadas por el alumnado durante todo el proyecto.
+              </p>
+              <span class="mt-4 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 border border-white/25 text-xs font-medium text-flamenco-goldLight">
+                <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+                Vídeo en preparación — Próximamente disponible
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Muestra Fotográfica de las Aulas (1.jpg a 4.jpg) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/1.jpg?raw=true', 'Actividades del alumnado — Mural y creaciones')" class="group relative rounded-2xl overflow-hidden shadow-md bg-white cursor-pointer card-hover">
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/1.jpg?raw=true" alt="Trabajo alumnado 1" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4">
+            <span class="text-white text-sm font-semibold">Creaciones en el aula</span>
+          </div>
+        </div>
+
+        <div onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/2.jpg?raw=true', 'Actividades del alumnado — Talleres de flamenco')" class="group relative rounded-2xl overflow-hidden shadow-md bg-white cursor-pointer card-hover">
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/2.jpg?raw=true" alt="Trabajo alumnado 2" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4">
+            <span class="text-white text-sm font-semibold">Murales y expresión artística</span>
+          </div>
+        </div>
+
+        <div onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/3.jpg?raw=true', 'Actividades del alumnado — Exposición')" class="group relative rounded-2xl overflow-hidden shadow-md bg-white cursor-pointer card-hover">
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/3.jpg?raw=true" alt="Trabajo alumnado 3" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4">
+            <span class="text-white text-sm font-semibold">Participación de los cursos</span>
+          </div>
+        </div>
+
+        <div onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/4.jpg?raw=true', 'Actividades del alumnado — Homenaje')" class="group relative rounded-2xl overflow-hidden shadow-md bg-white cursor-pointer card-hover">
+          <img src="https://github.com/maestrotemp21/imgen/blob/main/4.jpg?raw=true" alt="Trabajo alumnado 4" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-4">
+            <span class="text-white text-sm font-semibold">Vivencia del flamenco</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 6: PROGRAMA DEL ACTO -->
+  <section id="programa" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+      <span class="text-xs font-bold uppercase tracking-[0.2em] text-flamenco-crimson">Encuentro Institucional</span>
+      <h2 class="font-serif text-3xl sm:text-5xl font-bold text-flamenco-ink">Programa del Acto de Homenaje</h2>
+      <p class="text-stone-600 text-base sm:text-lg">
+        Consulta el programa oficial del evento preparado con la participación del claustro, el alumnado y las familias. Pulsa sobre el cartel para verlo a pantalla completa.
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      <div 
+        onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/HOMENAJE%20A%20ARC%C3%81NGEL%20-%20PROGRAMA%20DEL%20ACTO%20(1).png?raw=true', 'Programa del Acto de Homenaje a Arcángel')"
+        class="bg-white p-3 sm:p-4 rounded-3xl shadow-xl border border-stone-200 cursor-pointer card-hover group"
+      >
+        <div class="relative overflow-hidden rounded-2xl">
+          <img 
+            src="https://github.com/maestrotemp21/imgen/blob/main/HOMENAJE%20A%20ARC%C3%81NGEL%20-%20PROGRAMA%20DEL%20ACTO%20(1).png?raw=true" 
+            alt="Programa del Acto de Homenaje a Arcángel" 
+            class="w-full h-auto object-cover group-hover:scale-[1.015] transition-transform duration-500"
+          />
+          <div class="absolute bottom-4 right-4 px-4 py-2 rounded-xl bg-black/80 text-white text-xs sm:text-sm font-medium flex items-center gap-2 backdrop-blur-sm">
+            <i data-lucide="maximize-2" class="w-4 h-4 text-flamenco-gold"></i>
+            Ampliar programa
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="bg-flamenco-dark text-stone-300 py-14 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div class="flex items-center gap-4">
+        <img 
+          src="https://github.com/maestrotemp21/imgen/blob/main/LOGO%20COLEGIO.png?raw=true&v=2" 
+          alt="Logo Colegio" 
+          class="h-16 w-16 object-contain bg-white rounded-xl p-1.5 shadow-md"
+        />
+        <div>
+          <p class="font-serif text-xl sm:text-2xl font-bold text-white">Homenaje a Arcángel</p>
+          <p class="text-xs sm:text-sm text-stone-400">Proyecto Educativo de Cultura Andaluza y Flamenco en el Aula</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-right">
+        <div class="space-y-0.5">
+          <span class="block text-xs uppercase tracking-widest text-flamenco-gold font-semibold">Desarrollo y diseño</span>
+          <span class="block text-sm sm:text-base font-medium text-white">Javier Saavedra Valdayo</span>
+        </div>
+        <img 
+          src="https://github.com/maestrotemp21/imgen/blob/main/Design%20JSV%20logo%20blanco.png?raw=true" 
+          alt="Design JSV — Javier Saavedra Valdayo" 
+          class="h-16 sm:h-20 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity"
+        />
+      </div>
+    </div>
+  </footer>
+
+  <!-- VISOR LIGHTBOX PARA AMPLIAR IMÁGENES -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden bg-black/90 items-center justify-center p-4" onclick="closeLightbox(event)">
+    <button onclick="closeLightbox(event, true)" aria-label="Cerrar visor" class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/15 hover:bg-white/30 text-white flex items-center justify-center transition-colors">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+    <div class="max-w-5xl max-h-[90vh] flex flex-col items-center gap-3" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="" alt="" class="max-h-[82vh] w-auto object-contain rounded-xl shadow-2xl" />
+      <p id="lightbox-caption" class="text-white/90 text-sm font-medium text-center"></p>
+    </div>
+  </div>
+
+  <!-- SCRIPTS INTERACTIVOS -->
+  <script>
+    // Inicializar iconos
+    lucide.createIcons();
+
+    // Menú móvil
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Reproducir documental de YouTube al pulsar sobre la portada
+    function playDocumentary() {
+      const wrapper = document.getElementById('doc-player-wrapper');
+      wrapper.innerHTML = `
+        <iframe 
+          class="w-full h-full" 
+          src="https://www.youtube.com/embed/dZ_DVH1RoA4?autoplay=1&rel=0" 
+          title="Arcángel: El alma a contraluz" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+      `;
+    }
+
+    // Visor Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    function openLightbox(src, caption) {
+      lightboxImg.src = src;
+      lightboxCaption.textContent = caption || '';
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(event, force = false) {
+      if (force || event.target === lightbox) {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+        closeLightbox(e, true);
+      }
+    });
+  </script>
+</body>
+</html>
