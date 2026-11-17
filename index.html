@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Homenaje a Arcángel — CEIP Francisco Alcalá</title>
   <meta name="description" content="Proyecto educativo y cultural de homenaje al cantaor onubense Arcángel realizado por el CEIP Francisco Alcalá de Villalba del Alcor (Huelva)." />
   
@@ -289,7 +290,7 @@
     </div>
   </section>
 
-  <!-- NUEVA SECCIÓN: GALERÍA DE IMÁGENES INTERACTIVA (JUSTO ANTES DEL DOCUMENTAL) -->
+  <!-- SECCIÓN: GALERÍA DE IMÁGENES INTERACTIVA (JUSTO ANTES DEL DOCUMENTAL) -->
   <section id="galeria" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
     <div class="max-w-3xl mx-auto mb-12 space-y-3">
       <div class="text-center space-y-2">
@@ -313,7 +314,6 @@
         onclick="openGalleryLightbox()"
         class="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-flamenco-dark flex items-center justify-center overflow-hidden cursor-pointer group"
       >
-        <!-- Fondo difuminado sutil para encuadrar fotos verticales u horizontales sin recortes bruscos -->
         <img 
           id="gallery-bg-blur"
           src="https://raw.githubusercontent.com/maestrotemp21/imgen/main/0ARCANGEL.jpg"
@@ -373,7 +373,6 @@
           Arcángel — Retrato y esencia flamenca (1 de 13)
         </p>
         <div id="gallery-dots" class="flex flex-wrap items-center justify-center gap-2" aria-label="Selector de diapositivas">
-          <!-- Los 13 puntos indicadores se generan dinámicamente con JavaScript -->
         </div>
       </div>
     </div>
@@ -421,7 +420,7 @@
             <div class="space-y-2">
               <p class="text-xs text-stone-400 text-justify">Pulsa en el reproductor para ver el documental completo o ábrelo directamente en YouTube.</p>
               <a 
-                href="https://youtu.be/dZ_DVH1RoA4" 
+                href="https://youtu.be/fzb3xWuTnxA" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 text-sm font-semibold text-flamenco-gold hover:text-flamenco-goldLight transition-colors"
@@ -434,7 +433,7 @@
         </div>
 
         <!-- Reproductor Interactivo con Portada Oficial -->
-        <div class="lg:col-span-6">
+        <div class="lg:col-span-6 space-y-3">
           <div id="doc-player-wrapper" class="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/15 bg-black group">
             <img 
               src="https://raw.githubusercontent.com/maestrotemp21/imgen/main/Portada%20Documental.png" 
@@ -450,6 +449,17 @@
                 <i data-lucide="play" class="w-9 h-9 fill-current ml-1"></i>
               </button>
             </div>
+          </div>
+          <div class="flex justify-end">
+            <a 
+              href="https://youtu.be/fzb3xWuTnxA" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 text-xs text-stone-400 hover:text-flamenco-gold transition-colors"
+            >
+              <i data-lucide="youtube" class="w-4 h-4 text-flamenco-crimson"></i>
+              ¿Problemas con el reproductor integrado? Abrir vídeo directamente en YouTube
+            </a>
           </div>
         </div>
       </div>
@@ -1174,7 +1184,6 @@
     const galleryPauseBadge = document.getElementById('gallery-pause-badge');
     const galleryContainer = document.getElementById('arcangel-gallery-container');
 
-    // Crear los 13 puntos indicadores inferiores
     function renderGalleryDots() {
       galleryDotsContainer.innerHTML = '';
       galleryImages.forEach((_, idx) => {
@@ -1210,7 +1219,6 @@
       galleryCaption.textContent = item.title;
       renderGalleryDots();
 
-      // Si el lightbox está abierto en modo galería, actualizar también la foto ampliada
       if (isLightboxGalleryMode && !lightbox.classList.contains('hidden')) {
         lightboxImg.onerror = function() {
           this.onerror = null;
@@ -1263,7 +1271,6 @@
       }
     }
 
-    // Soporte táctil (deslizar en móvil/tableta)
     let touchStartX = 0;
     galleryContainer.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
@@ -1279,25 +1286,25 @@
       }
     }, { passive: true });
 
-    // Iniciar galería automáticamente
     renderGalleryDots();
     startGalleryAuto();
 
     // =========================================================================
-    // REPRODUCTOR DOCUMENTAL YOUTUBE
+    // REPRODUCTOR DOCUMENTAL YOUTUBE (CON REFERRER POLICY ANTI-ERROR 153)
     // =========================================================================
     function playDocumentary() {
       const wrapper = document.getElementById('doc-player-wrapper');
-      wrapper.innerHTML = `
-        <iframe 
-          class="w-full h-full" 
-          src="https://www.youtube.com/embed/dZ_DVH1RoA4?autoplay=1&rel=0" 
-          title="Arcángel: El alma a contraluz" 
-          frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen>
-        </iframe>
-      `;
+      wrapper.innerHTML = '';
+
+      const iframe = document.createElement('iframe');
+      iframe.className = 'w-full h-full border-0';
+      iframe.src = 'https://www.youtube-nocookie.com/embed/fzb3xWuTnxA?autoplay=1&rel=0&modestbranding=1';
+      iframe.title = 'Arcángel: El alma a contraluz';
+      iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      iframe.setAttribute('allowfullscreen', '');
+
+      wrapper.appendChild(iframe);
     }
 
     // =========================================================================
