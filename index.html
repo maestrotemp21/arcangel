@@ -827,12 +827,17 @@
 
   <!-- SECCIÓN 5: MUSEO DE ARCÁNGEL: EL CAMINO DE UNA VOZ -->
   <section id="museo" class="py-20 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="max-w-4xl mx-auto mb-14 space-y-6">
+    <!-- Introducción Editorial del Museo -->
+    <div class="max-w-4xl mx-auto mb-16 space-y-6">
       <div class="text-center space-y-3">
-        <span class="text-xs font-bold uppercase tracking-[0.2em] text-flamenco-crimson">Exposición Didáctica</span>
-        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-flamenco-ink">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-flamenco-crimson/10 text-flamenco-crimson text-xs font-bold uppercase tracking-[0.22em]">
+          <i data-lucide="landmark" class="w-3.5 h-3.5"></i>
+          Exposición Didáctica
+        </span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-flamenco-ink leading-tight">
           Museo de Arcángel: <span class="italic text-flamenco-crimson">El camino de una voz</span>
         </h2>
+        <div class="w-24 h-[2px] bg-gradient-to-r from-transparent via-flamenco-gold to-transparent mx-auto pt-1"></div>
       </div>
 
       <div class="space-y-4 text-stone-600 text-base sm:text-lg leading-relaxed text-justify">
@@ -848,69 +853,153 @@
         <p>
           <strong>«El camino de una voz»</strong> es mucho más que una exposición biográfica. Es un homenaje a un artista que ha llevado el nombre de Huelva y Andalucía por el mundo, una oportunidad para acercar su legado a las nuevas generaciones y una forma de aprender que detrás de cada voz hay unas raíces, una historia y una pasión.
         </p>
-        <p class="font-medium text-flamenco-ink">
+        <p class="font-semibold text-flamenco-ink text-center sm:text-left pt-1">
           Un museo construido desde la escuela, con la mirada del alumnado y el corazón puesto en el flamenco.
         </p>
       </div>
-
-      <div class="flex justify-center pt-1">
-        <button 
-          onclick="openLightbox('https://raw.githubusercontent.com/maestrotemp21/imgen/main/CARTEL%20MUSEO%20FLAMENCO%20(3508%20x%204961%20px).jpg', 'Cartel Oficial — Museo de Arcángel: El camino de una voz')"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-flamenco-sand hover:bg-flamenco-gold/20 text-flamenco-ink font-semibold border border-flamenco-gold/30 transition-colors"
-        >
-          <i data-lucide="image" class="w-4 h-4 text-flamenco-crimson"></i>
-          Ver Cartel Oficial del Museo
-        </button>
-      </div>
     </div>
 
-    <!-- Vista General del Museo (museo11.jpg) + Cartel Oficial -->
+    <!-- Dos Bloques Parejos y Simétricos (lg:grid-cols-12 con 6 + 6 columnas e items-stretch) -->
     <div class="grid lg:grid-cols-12 gap-8 items-stretch">
-      <div class="lg:col-span-8 bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 flex flex-col">
-        <div class="flex-1 overflow-hidden cursor-pointer relative group" onclick="openLightbox('https://raw.githubusercontent.com/maestrotemp21/imgen/main/museo11.jpg', 'Museo de Arcángel: El camino de una voz')">
-          <img 
-            src="https://raw.githubusercontent.com/maestrotemp21/imgen/main/museo11.jpg" 
-            onerror="this.onerror=null;this.src='https://github.com/maestrotemp21/imgen/blob/main/museo11.jpg?raw=true';"
-            alt="Museo de Arcángel: El camino de una voz" 
-            class="w-full h-full object-cover max-h-[460px] group-hover:scale-[1.02] transition-transform duration-500"
-          />
-          <div class="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 text-white text-xs flex items-center gap-1.5">
-            <i data-lucide="zoom-in" class="w-3.5 h-3.5 text-flamenco-gold"></i>
-            Ampliar exposición
+      
+      <!-- COLUMNA IZQUIERDA (6 cols): Cartel Oficial del Museo + Acceso a Galería Fotográfica -->
+      <article class="lg:col-span-6 bg-flamenco-dark text-white rounded-3xl overflow-hidden shadow-2xl border-2 border-flamenco-gold/45 flex flex-col justify-between relative">
+        <!-- Detalles de luz ambientales -->
+        <div class="absolute -right-16 -top-16 w-52 h-52 rounded-full bg-flamenco-crimson/20 blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-16 -bottom-16 w-52 h-52 rounded-full bg-flamenco-gold/15 blur-3xl pointer-events-none"></div>
+
+        <!-- Marco del Cartel Oficial del Museo -->
+        <div 
+          onclick="openLightbox('https://github.com/maestrotemp21/imgen/blob/main/CARTEL%20MUSEO%20FLAMENCO%20(3508%20x%204961%20px).jpg?raw=true', 'Cartel Oficial — Museo de Arcángel: El camino de una voz')"
+          class="relative cursor-pointer group bg-[#0E0807] border-b border-white/10 p-5 sm:p-6 flex items-center justify-center"
+        >
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-flamenco-gold/30 max-w-sm w-full bg-black">
+            <img 
+              src="https://github.com/maestrotemp21/imgen/blob/main/CARTEL%20MUSEO%20FLAMENCO%20(3508%20x%204961%20px).jpg?raw=true" 
+              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/maestrotemp21/imgen/main/CARTEL%20MUSEO%20FLAMENCO%20(3508%20x%204961%20px).jpg';"
+              alt="Cartel Museo Flamenco — El camino de una voz" 
+              class="w-full h-[420px] sm:h-[450px] object-contain mx-auto group-hover:scale-[1.02] transition-transform duration-500"
+            />
+          </div>
+
+          <div class="absolute top-4 left-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-flamenco-dark/90 backdrop-blur-sm border border-flamenco-gold/40 text-flamenco-goldLight text-xs font-bold uppercase tracking-[0.2em] shadow-lg">
+            <i data-lucide="camera" class="w-3.5 h-3.5 text-flamenco-gold"></i>
+            Exposición Fotográfica
+          </div>
+
+          <div class="absolute bottom-4 right-4 px-3.5 py-1.5 rounded-xl bg-black/80 text-white text-xs flex items-center gap-1.5 backdrop-blur-sm border border-white/15">
+            <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-flamenco-gold"></i>
+            Ampliar cartel
           </div>
         </div>
-        <div class="p-5 bg-white">
-          <h3 class="font-serif text-xl font-bold text-flamenco-ink text-center">Recorrido expositivo por la obra de Arcángel</h3>
-          <p class="text-sm text-stone-600 mt-1.5 text-justify">Fotografías, cartelería y recursos didácticos preparados para la visita de los distintos ciclos educativos.</p>
-        </div>
-      </div>
 
-      <div class="lg:col-span-4 bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 flex flex-col">
-        <div class="flex-1 overflow-hidden cursor-pointer relative group" onclick="openLightbox('https://raw.githubusercontent.com/maestrotemp21/imgen/main/CARTEL%20MUSEO%20FLAMENCO%20(3508%20x%204961%20px).jpg', 'Cartel Museo de Arcángel: El camino de una voz')">
-          <img 
-            src="https://raw.githubusercontent.com/maestrotemp21/imgen/main/CARTEL%20MUSEO%20FLAMENCO%20(3508%20x%204961%20px).jpg" 
-            alt="Cartel Museo Flamenco" 
-            class="w-full h-full object-cover max-h-[460px] group-hover:scale-[1.02] transition-transform duration-500"
-          />
-        </div>
-        <div class="p-5 bg-white">
-          <h3 class="font-serif text-xl font-bold text-flamenco-ink text-center">Cartel Oficial de la Muestra</h3>
-          <p class="text-sm text-stone-600 mt-1.5 text-justify">Identidad gráfica diseñada para guiar el itinerario cultural del centro.</p>
-        </div>
-      </div>
-    </div>
+        <!-- Contenido Textual + Botón de Acceso a la Galería -->
+        <div class="relative z-10 p-7 sm:p-9 flex-1 flex flex-col justify-between space-y-6">
+          <div class="space-y-4">
+            <h3 class="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight text-center sm:text-left">
+              Instantes del Museo <span class="italic text-flamenco-goldLight">«El camino de una voz»</span>
+            </h3>
 
-    <!-- Aviso de Museo en Construcción / Se completará próximamente -->
-    <div class="mt-10 bg-flamenco-sand/80 border border-flamenco-gold/40 rounded-2xl p-6 sm:p-7 flex flex-col sm:flex-row items-center gap-5 shadow-sm">
-      <div class="w-12 h-12 rounded-2xl bg-flamenco-crimson/10 text-flamenco-crimson flex items-center justify-center shrink-0">
-        <i data-lucide="sparkles" class="w-6 h-6"></i>
-      </div>
-      <div class="space-y-1">
-        <h4 class="font-serif text-xl font-bold text-flamenco-ink text-center sm:text-left">Exposición en proceso de ampliación</h4>
-        <p class="text-stone-700 text-sm sm:text-base leading-relaxed text-justify">
-          Este espacio museístico se encuentra actualmente en fase de desarrollo. Próximamente se completará con nuevas fotografías, paneles biográficos y las creaciones expositivas elaboradas por el alumnado y el profesorado del centro.
-        </p>
-      </div>
+            <div class="w-16 h-[2px] bg-gradient-to-r from-flamenco-gold to-flamenco-crimson mx-auto sm:mx-0"></div>
+
+            <p class="text-stone-300 text-sm sm:text-base leading-relaxed text-justify">
+              Recorre en detalle cada rincón de nuestra exposición escolar: los paneles biográficos, los retratos, los recuerdos de Alosno y el trabajo creativo del alumnado y profesorado del CEIP Francisco Alcalá.
+            </p>
+          </div>
+
+          <!-- Pie de tarjeta con llamada a la acción -->
+          <div class="pt-6 border-t border-white/15 space-y-3">
+            <a 
+              href="galeriamuseo.html" 
+              class="w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-flamenco-crimson hover:bg-flamenco-gold text-white hover:text-flamenco-dark font-bold text-sm sm:text-base shadow-lg shadow-flamenco-crimson/35 transition-all duration-300 group"
+            >
+              <i data-lucide="images" class="w-5 h-5"></i>
+              <span>Acceder a la galería de fotos del museo</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+            <p class="text-center text-xs text-stone-400 tracking-wide">
+              Sala expositiva digital · Visita fotográfica completa
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- COLUMNA DERECHA (6 cols): El retrato colectivo de Arcángel: un homenaje punto a punto -->
+      <article class="lg:col-span-6 bg-white rounded-3xl overflow-hidden shadow-2xl border border-stone-200/95 flex flex-col justify-between">
+        <!-- Marco del Cuadro Puntillista (misma altura visual que el marco izquierdo) -->
+        <div 
+          onclick="openLightbox('https://raw.githubusercontent.com/maestrotemp21/museo/refs/heads/main/IMG_20261117_093401copp.jpg', 'El retrato colectivo de Arcángel: un homenaje punto a punto — Obra de Alfonso Rojas García y alumnado del CEIP Francisco Alcalá')"
+          class="relative bg-flamenco-dark border-b border-stone-200 p-5 sm:p-6 flex items-center justify-center cursor-pointer group"
+        >
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-flamenco-gold/30 max-w-sm w-full bg-black">
+            <img 
+              src="https://raw.githubusercontent.com/maestrotemp21/museo/refs/heads/main/IMG_20261117_093401copp.jpg" 
+              alt="El retrato colectivo de Arcángel: un homenaje punto a punto" 
+              class="w-full h-[420px] sm:h-[450px] object-contain mx-auto group-hover:scale-[1.02] transition-transform duration-500"
+            />
+          </div>
+
+          <div class="absolute top-4 left-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-flamenco-dark/90 backdrop-blur-sm border border-flamenco-gold/40 text-flamenco-goldLight text-xs font-bold uppercase tracking-[0.2em] shadow-lg">
+            <i data-lucide="palette" class="w-3.5 h-3.5 text-flamenco-gold"></i>
+            Obra Colectiva · Puntillismo
+          </div>
+
+          <div class="absolute bottom-4 right-4 px-3.5 py-1.5 rounded-xl bg-black/80 text-white text-xs flex items-center gap-1.5 backdrop-blur-sm border border-white/15">
+            <i data-lucide="maximize-2" class="w-3.5 h-3.5 text-flamenco-gold"></i>
+            Ampliar obra
+          </div>
+        </div>
+
+        <!-- Contenido Textual debajo del cuadro -->
+        <div class="p-7 sm:p-9 flex-1 flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <h3 class="font-serif text-3xl sm:text-4xl font-bold text-flamenco-ink leading-tight text-center sm:text-left">
+              El retrato colectivo de Arcángel: <span class="italic text-flamenco-crimson">un homenaje punto a punto</span>
+            </h3>
+
+            <div class="w-16 h-[2px] bg-gradient-to-r from-flamenco-crimson to-flamenco-gold mx-auto sm:mx-0"></div>
+
+            <div class="space-y-3 text-stone-600 text-sm sm:text-base leading-relaxed text-justify">
+              <p>
+                Una obra artística creada para rendir homenaje a Arcángel y en la que ha participado todo el alumnado del <strong>CEIP Francisco Alcalá</strong>, desde Educación Infantil hasta 6.º de Primaria.
+              </p>
+              <p>
+                Se trata de un retrato de medio cuerpo, realizado mediante la técnica del puntillismo, en el que miles de pequeños puntos de color se unen para dar forma a la figura del cantaor onubense. Cada alumno y alumna ha contribuido a construir una obra colectiva que simboliza la unión, la creatividad y el sentimiento compartido hacia nuestras raíces flamencas.
+              </p>
+            </div>
+
+            <!-- Bloque del Artista Alfonso Rojas García con su Fotografía -->
+            <div class="bg-flamenco-sand/75 border border-flamenco-gold/40 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-4 shadow-sm">
+              <div 
+                onclick="openLightbox('https://github.com/maestrotemp21/museo/blob/main/Alfonso%20Rojas.jpg?raw=true', 'Alfonso Rojas García — Autor del retrato colectivo de Arcángel')"
+                class="cursor-pointer shrink-0 group relative"
+              >
+                <img 
+                  src="https://github.com/maestrotemp21/museo/blob/main/Alfonso%20Rojas.jpg?raw=true" 
+                  alt="Alfonso Rojas García" 
+                  class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-flamenco-gold/70 shadow-md group-hover:scale-105 transition-transform"
+                />
+              </div>
+              <div class="space-y-1 text-xs sm:text-sm text-stone-700 leading-relaxed text-justify">
+                <span class="block text-[11px] font-bold uppercase tracking-widest text-flamenco-crimson text-center sm:text-left">Autoría Artística</span>
+                <p>
+                  El cuadro ha sido realizado generosamente por el artista <strong>Alfonso Rojas García</strong>, primo de Javier Saavedra, quien ha querido sumarse a este homenaje aportando su talento artístico y haciendo posible esta creación tan especial.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cierre poético alineado con la base de la tarjeta izquierda -->
+          <blockquote class="pt-5 border-t border-stone-200/80 space-y-1.5 text-center">
+            <p class="font-serif italic text-lg sm:text-xl text-flamenco-ink">
+              «Cada punto tiene su lugar. Cada pequeña aportación forma parte de algo mucho más grande.»
+            </p>
+            <p class="text-flamenco-crimson font-bold text-xs uppercase tracking-wider">
+              Un retrato, cientos de manos y un mismo sentimiento: el flamenco como herencia, identidad y pasión compartida.
+            </p>
+          </blockquote>
+        </div>
+      </article>
     </div>
   </section>
 
